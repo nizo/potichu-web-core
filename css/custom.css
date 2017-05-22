@@ -1,0 +1,538 @@
+/* Have fun adding your style here :) - PS: At all times this file should contain a comment or a rule, otherwise opera might act buggy :( */
+
+/* General Custom CSS */
+
+
+
+
+/*
+Desktop Styles
+================================================== */
+/* Note: Add new css to the media query below that you want to only effect the desktop view of your site */
+
+
+.partners {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+.price-discount {
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+  /* Add your Desktop Styles here */
+
+}
+
+.avia-breadcrumbs {
+	/* display: none !important; */
+}
+
+.material-more-information {
+	color: #0061b6 !important;
+	font-size: 10px;
+	position: absolute;
+	right: 0;
+}
+
+.material-more-information:hover {
+	text-decoration: underline !important;
+}
+
+.pricelist-additional-info {
+	padding: 0 0 5px 0;
+	width: auto;
+	font-style: italic;
+	text-align: right;
+	font-size: 12px;
+	margin-top:4px;
+}
+
+.flags-container {
+	display: block;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 24px;
+	right: 22px;
+}
+
+.flags-container a {
+	width: 53px;
+	height: 19px;
+	background-position: 25px;
+	background-repeat: no-repeat;
+	font-size: 12px;
+	opacity: 0.4;
+	display: block;
+}
+
+.flags-container a.active, .flags-container a:hover {
+	opacity: 1;
+	cursor: pointer;
+	color: white;
+	text-decoration: none;
+}
+
+.flags-container .sk {
+	background-image: url('../images/flag_sk.png');
+}
+
+.flags-container .cz	 {
+	background-image: url('../images/flag_cz.png');
+	margin-top: 10px;
+}
+
+.main_color tr:nth-child(even) {
+	color: #444;
+}
+
+.avia-builder-el-5 .avia-button.avia-position-left {
+/*	margin-top: 30px;*/
+}
+
+/*
+Mobile Styles
+================================================== */
+/* Note: Add new css to the media query below that you want to only effect the Mobile and Tablet Portrait view */
+
+@media only screen and (max-width: 767px) {
+  /* Add your Mobile Styles here */
+
+	.graph-material-title {
+		width: 33%;	
+	}
+	
+	.graph-material-title
+		
+	.responsive tr th:first-child, tr td:first-child {
+		text-transform: uppercase;
+		font-size: 115%;
+		background-color: #E9E9E9;
+		color: rgb(77,77,77);
+		font-weight: bold;
+	}
+	
+	.responsive table > tbody > tr:first-child td:first-child {		
+		display:none;
+	}
+
+   .responsive #header_meta .social_bookmarks {
+		margin: 0;
+	}
+
+	#top .avia-post-nav{
+		background: rgba(0,97,182,0.1);
+	}
+	
+	.responsive .container {
+		width: 90%;
+	}
+	
+	.flags-container  {
+		top: 16px;
+	}
+
+	.post-entry-1176 .avia-builder-el-10 .avia-button.avia-position-left {
+		margin-top: 0px;
+	}
+
+	.avia-builder-el-5 .avia-button.avia-position-left {
+		margin-top: 0px;
+	}
+	
+	.main_menu {
+		height: auto;
+	}
+		
+	.home.page .avia-builder-el-13 .avia_textblock p {
+		text-align: left !important;
+	}
+	
+	.avia-icon-list .iconlist_icon {
+		margin-bottom: 30px;
+	}
+	
+	.noLightbox.social_bookmarks.icon_count_2 {
+		width:12% !important;	
+		display: inline-block;
+	}
+	
+	.responsive #header .sub_menu, .responsive #header_meta .sub_menu>ul {
+		display: inline-block;
+		width:89%;
+	}
+	
+	.phone-info {
+		width: 100%;
+		text-align: right;
+	}
+	
+	
+	.responsive #header .sub_menu, .responsive #header_meta .sub_menu>ul {width: 100% !important;}
+	.sub_menu .phone-info {text-align: center;}
+	
+	.page-id-1167 .avia-builder-el-2 {
+		min-height: 0px !important;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+
+	.graph-material-title {
+		width: 33% !important;	
+	}
+	.flags-container-header .sk, .flags-container-header .cz { display: none !important; }	
+	.flags-container-header a div:first-child { margin-right: 10px !important; }
+	.sub-menu {width: 100% !important;}
+
+	.social_header .phone-info span {
+		margin: 0;
+		padding: 0;
+	}
+	.page-id-1167 .avia-builder-el-2 {
+		min-height: 0px !important;
+	}
+}
+
+
+
+
+  
+.IMS_fixChatBox body .header .opInf .txtColor {
+	display:none !important;
+}
+
+
+
+
+.home.page #after_layer_slider_1 h3.iconbox_content_title a:hover, .home.page #after_layer_slider_1 h1.iconbox_content_title a:hover {
+/*	color: #0061b6; */
+text-decoration: underline;
+}
+
+.alternate_color .avia-icon-list .iconlist_icon, .main_color .avia-icon-list .iconlist_icon {
+	background-color: #0061b6;
+}
+
+.page-id-2756 .avia-builder-el-8 {
+	margin-top: 0;
+}
+
+.page-id-2756 .avia_image.avia-builder-el-11 {
+	margin: 30px 0 30px 0;
+}
+
+.container_wrap.socket_color {
+	z-index: 0;
+}
+
+
+html { margin-top: 0px !important; }
+* html body { margin-top: 0px !important; }
+
+h3.widgettitle {
+	line-height: 1.3;
+}
+
+.social_header #header_main .container, .social_header .main_menu ul:first-child > li a { 
+	line-height: 88px;
+	height: 92px;
+}	
+
+
+
+.flags-container-header {
+	height: 100%;
+	width: auto;
+	display: inline-block;
+}
+
+
+.flags-container-header a .shift {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 6px;
+}
+.social_header .phone-info span { padding-top: 5px; }
+
+.flags-container-header a .sk, .flags-container-header a .cz {
+	width: 28px;
+	height: 19px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	margin-left: 6px;
+	cursor: pointer;
+}
+
+.flags-container-header .sk {
+	background-image: url('../images/flag_sk.png');	
+	margin-right: 12px;	
+}
+
+.flags-container-header .cz {
+	background-image: url('../images/flag_cz.png');	
+}
+
+.contact-header {
+	display: inline-block;
+	margin-bottom: 3px;
+	vertical-align: bottom;
+}
+
+.sub_menu { top: 14%;}
+
+
+.post-entry-2629 .avia_textblock {
+	padding: 0;
+}
+
+.post-entry-1176 .avia-builder-el-4, .post-entry-1176 .avia-builder-el-7    {
+	margin-top: 0;
+}
+
+#top .main_color input[type='text'], #top .main_color textarea, #top .main_color select {
+	background-color: #E6EFF8;
+	color: #4D4D4D;
+}
+#top .main_color input[type='text']:focus, #top .main_color textarea:focus, #top .main_color select:focus {
+	border-color: #0061B6;
+}
+
+
+.post-entry-1167 .avia-builder-el-12 {
+
+}
+
+.page-id-59 .avia-builder-el-14 div:first-child {
+	/*margin-top: 27px;*/
+}
+
+.phone-info span { padding: 0;}
+.phone-info { padding: 3px 0 2px 0;}
+
+#top #header .avia_mega_div > .sub-menu > li a .avia-bullet,
+#top #header .avia_mega_div > .sub-menu > li a .avia-menu-text { margin-left:5px; }
+
+
+
+#top #header .avia_mega_div > .sub-menu > li { border: none; }
+#header .mega_menu_title a { color: white; }
+
+#top #header .avia_mega_div > .sub-menu > li > ul li:hover .avia-menu-text,
+#top #header #avia-menu > li > .sub-menu > li.menu-item-object-page:hover .avia-menu-text,
+#top #header #avia-menu > li > .sub-menu > li.menu-item-object-custom:hover .avia-menu-text
+{ color: #0061b6; }
+
+.all-materials-link { border-bottom: 2px solid white; }
+.all-materials-link .avia-menu-text { color: white; }
+
+.avia-form-success {
+	color: #0061b6;
+	text-transform: uppercase;
+}
+
+.page-id-1167 .avia-builder-el-12 {
+	margin-top: -430px;
+}
+
+.page-id-1167 .avia-builder-el-2 {
+	min-height: 640px;
+}
+
+h3.avia-form-success {
+	color: #359741;
+}
+
+.page-child .avia-gallery img, .avia_start_animation .iconlist_icon, .avia_transform .avia_start_animation.avia-testimonial .avia-testimonial-image { 
+	opacity: 1 !important;
+	-webkit-animation: none !important;
+	-moz-animation: none !important;
+	-o-animation: none !important;	
+	animation: none !important;
+}
+
+.page-child h3 { 
+	color: #0061b6 !important;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif !important;
+}
+
+/* graphs */
+.graph-material-title > span{
+	margin: -8px 0 0 5px  !important;
+	vertical-align: middle !important;
+	display: inline-block !important;
+}
+
+.graph-material-title.disabled > span {
+	color: #c5c5c5 !important;
+}
+
+.graph-material-title {
+	font-family: arial;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-top: 8px;
+	font-weight: 900;
+	display:inline-block;
+	width: 33%;
+	min-width: 210px;
+}
+
+.graph-material-title input:hover { cursor: pointer; }
+
+#lineLegend { margin: 10px 0 40px 25px !important;}
+.page-id-1176 .avia-builder-el-5 { margin-top: 0px !important; }
+
+.team-img-container { border: 1px solid rgb(177,177,177) !important; }
+
+.team-member-description .member-more-information { 
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: -11px;
+	position: absolute;
+	font-size: 11px;
+}
+
+.page-id-3995 .iconlist_title a {
+	text-transform: none !important;
+	color: #0061b6 !important;
+}
+tr:first-child th, tr:first-child td {
+	background-color: #0061b6;
+	color: white;
+}
+
+sup {
+	font-size: 60%;
+	line-height: 2;
+	vertical-align: top;
+}
+
+#top .avia-post-nav { background: rgba(0,97,182,0.65); }
+
+.avia-promocontent h4 { 
+	margin-top: 0px;
+	line-height: 24px;
+}
+
+.avia_textblock h4 {
+	margin-bottom: 10px !important;
+}
+
+h3, h4 { line-height: 1.3em; }
+
+.template-single-blog > main.content {
+	padding-top: 20px;
+}
+
+.template-single-blog  h1.post-title {
+	font-size: 44px !important;
+	font-weight: 100;
+}
+
+.inner_sidebar {
+	margin-left: 20px !important;
+}
+
+.template-single-blog .sidebar_right {
+	padding-top: 30px !important;
+}
+
+#gallery-and-news-section .avia-content-slider-element-container{
+    background-color: #eef7ff;
+    padding: 10px 7px 10px 25px;
+    margin-top: 43px;
+    border: 1px solid #E1E1E1;
+    border-left: 3px solid #0061b6;
+}
+
+#gallery-and-news-section .avia-content-slider-inner {
+	margin-top: -20px;
+}
+
+#gallery-and-news-section h3 {
+    font-size: 17px;
+}
+
+.potichu-preview {
+	width: 220px;
+	height: 140px;
+	background-size: cover;
+	margin-top: 6px;
+    overflow: hidden;
+    border-radius: 4px;
+    float: left;   
+    position: relative;
+    text-align: center;
+    line-height: 81px;
+    position: relative;
+    z-index: 4;
+    display: block;
+}
+
+.template-blog article {
+    margin: 20px 0;
+    border-bottom: 1px dashed #E1E1E1;
+}
+
+.template-blog .post-title:hover {
+	color: 	#0061B6;
+}
+
+#top .flex_column .template-blog .post-title {
+	font-size: 22px;
+	font-weight: normal;
+}
+
+.template-blog .blog-meta { margin-right: 20px; }
+
+.avia-testimonial_inner { text-align: left !important; }
+
+.av-menu-button-bordered .avia-menu-text {
+	background-color: white;
+	color: #0061b6;
+	border: none !important;
+}
+
+@media only screen and (max-width: 989px) {
+	
+	.page-id-1167 .entry-content-wrapper .av_one_fourth,
+	.page-id-1167 .entry-content-wrapper .av_one_half 	{
+		width: 100%;
+		margin-left: 0;
+	}
+	
+	.page-id-1167 .avia-builder-el-12 {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	#js_sort_items a {
+		float: none;
+		margin-right: 12px;
+		border: 1px solid #d1d1d2;
+		padding: 4px 8px;
+		font-size: 13px;
+		text-transform: uppercase;
+		margin-bottom: 12px;
+		display: inline-block;
+	}
+
+	.sort_by_cat .text-sep {
+		display: none;
+	}
+
+	.sort_by_cat .active_sort {
+		background-color: #0061b6;
+		color: white !important;
+	}
+}
