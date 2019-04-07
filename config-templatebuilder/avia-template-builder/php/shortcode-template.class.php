@@ -471,7 +471,7 @@ if ( !class_exists( 'aviaShortcodeTemplate' ) ) {
 			$defaults = array('class'=>'avia_default_container', 'innerHtml'=>'');
 			$params = array_merge($defaults, $params);
 			extract($params);
-
+			$data = array();
 			$data['shortcodehandler'] 	= $this->config['shortcode'];
 			$data['modal_title'] 		= $this->config['name'];
 			$data['modal_ajax_hook'] 	= $this->config['shortcode'];

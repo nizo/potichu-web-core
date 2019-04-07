@@ -29,7 +29,7 @@
 
 						//create the footer columns by iterating
 
-						
+
 				        switch($columns)
 				        {
 				        	case 1: $class = ''; break;
@@ -39,7 +39,7 @@
 				        	case 5: $class = 'av_one_fifth'; break;
 				        	case 6: $class = 'av_one_sixth'; break;
 				        }
-				        
+
 				        $firstCol = "first el_before_{$class}";
 
 						//display the footer widget that was defined at appearenace->widgets in the wordpress backend
@@ -69,7 +69,7 @@
 
 
 
-			
+
 
 			<?php
 
@@ -78,7 +78,7 @@
 
 			// you can filter and remove the backlink with an add_filter function
 			// from your themes (or child themes) functions.php file if you dont want to edit this file
-			// you can also just keep that link. I really do appreciate it ;)			
+			// you can also just keep that link. I really do appreciate it ;)
 
 
 			//you can also remove the kriesi.at backlink by adding [nolink] to your custom copyright field in the admin area
@@ -104,7 +104,7 @@
                             	$social_args 	= array('outside'=>'ul', 'inside'=>'li', 'append' => '');
 								echo avia_social_media_icons($social_args, false);
                             }
-                        
+
                             echo "<nav class='sub_menu_socket' ".avia_markup_helper(array('context' => 'nav', 'echo' => false)).">";
                                 $avia_theme_location = 'avia3';
                                 $avia_menu_class = $avia_theme_location . '-menu';
@@ -119,7 +119,7 @@
 
                                 wp_nav_menu($args);
                             echo "</nav>";
-        
+
                         ?>
 
                     </div>
@@ -132,13 +132,13 @@
 			} //end nosocket check
 
 
-		
-		
+
+
 		} //end blank & nofooterarea check
 		?>
 		<!-- end main -->
 		</div>
-		
+
 		<?php
 		//display link to previeous and next portfolio entry
 		echo avia_post_nav();
@@ -179,59 +179,59 @@
 ?>
 
 
-	<?	
-	global $singleMaterialPage;	
-		
-	if ($singleMaterialPage) { 
-	
-		$graphTypeID = get_post_meta( get_the_ID(), 'header_title_bar', true);								
-		$graphTypeID = get_the_excerpt();
-		
+	<?
+	global $singleMaterialPage;
+
+	if ($singleMaterialPage) {
+
+		$graphTypeID = get_post_meta( get_the_ID(), 'lwTypeGraph', true);
+		//$graphTypeID = get_the_excerpt();
+
 		if (($graphTypeID) != '')
 			$graphTypeID = 2;
 		else
 			$graphTypeID = 1;
-			
-		//echo $graphTypeID;		
-				
+
+		//echo $graphTypeID;
+
 		?>
-		
+
 		<script>
-		window.onload = function() {		
-			setTimeout(renderData, 50);			
+		window.onload = function() {
+			setTimeout(renderData, 50);
 		}();
 
 		function renderData() {
-			jQuery.get("../../../materials-efficiency-data.csv", function(csvString) {
+			jQuery.get("../../../materials-efficiency-data.csv?v2", function(csvString) {
 
-			var lines = csvString.split('\n');		
-			var headingElements = lines[0].split(',');		
+			var lines = csvString.split('\n');
+			var headingElements = lines[0].split(',');
 			var loadedDatasets = [];
-			
+
 			var materialName = '<?php echo get_the_title(); ?>';
-			var graphTypeID = '<?php echo $graphTypeID; ?>';		
-			var graphTypeValue = (graphTypeID == 1 ? "Rw" : "ΔLw");		
+			var graphTypeID = '<?php echo $graphTypeID; ?>';
+			var graphTypeValue = (graphTypeID == 1 ? "Rw" : "ΔLw");
 			var IDOffset  = (graphTypeID == 1 ? 1 : 15);
-			var currentDisplayedMaterialIndex = headingElements.indexOf(materialName);		
-			var activeDatasetIDs = new Array();		
+			var currentDisplayedMaterialIndex = headingElements.indexOf(materialName);
+			var activeDatasetIDs = new Array();
 			var allDatasetIDs = new Array();
-			
-			for (var i=1; i < lines.length; i += 2) {		
-				
-				if ((lines[i][0] == '`') || ((lines[i][0] != graphTypeID))) continue;				
-				
-				
+
+			for (var i=1; i < lines.length; i += 2) {
+
+				if ((lines[i][0] == '`') || ((lines[i][0] != graphTypeID))) continue;
+
+
 				line=lines[i].split(',');
 				values=lines[i+1].split(',');
-							
-				
-				var title = '<?php echo get_the_title(); ?>';			
+
+
+				var title = '<?php echo get_the_title(); ?>';
 				var baseColor = line[3].replace(new RegExp('/', 'g'), ',');
-				
-				var backgroundFillColor = 'rgba(' + baseColor + ',0.1)';				
-				var color = 'rgb(' + baseColor + ')';			
-				
-				var dataset = {				
+
+				var backgroundFillColor = 'rgba(' + baseColor + ',0.1)';
+				var color = 'rgb(' + baseColor + ')';
+
+				var dataset = {
 					title: line[2],
 					//fillColor : backgroundFillColor,
 					strokeColor : color,
@@ -241,22 +241,22 @@
 					displayDataset : true,
 					fillColor: "rgba(220,220,220,0.2)",
 					data : values
-				}						
-				
+				}
+
 				if (title==line[1])
 					activeDatasetIDs.push('#' + ( i - IDOffset )/ 2);
-				
+
 				allDatasetIDs.push('#' + ( i - IDOffset ) / 2);
-					
-				loadedDatasets.push(dataset);				
-			}		
-					
-			
+
+				loadedDatasets.push(dataset);
+			}
+
+
 			var lineChartData = {
 				labels : headingElements,
 				datasets : loadedDatasets
 			}
-		
+
 			var ctx = document.getElementById("canvas").getContext("2d");
 			window.myLine = new Chart(ctx).Line(lineChartData, {
 				responsive: true,
@@ -266,30 +266,30 @@
 				pointDotStrokeWidth : 2,
 				xAxisLabel : 'Frekvencia ( Hz )',
 				yAxisLabel : graphTypeValue + ' ( dB )',
-				animationSteps: 15				
+				animationSteps: 15
 			});
-			
+
 			legend(document.getElementById("lineLegend"), lineChartData);
 
 			//console.log(allDatasetIDs);
 			jQuery.each(allDatasetIDs, function(index, value){
-				jQuery(value).trigger('click');	
-			});		
-			
-			jQuery.each(activeDatasetIDs, function(index, value){
-				jQuery(value).trigger('click');				
-			});
-			
+				jQuery(value).trigger('click');
 			});
 
-		
+			jQuery.each(activeDatasetIDs, function(index, value){
+				jQuery(value).trigger('click');
+			});
+
+			});
+
+
 		}
 		</script>
-		<?		
-		
-	}	
-	
-	?>	
+		<?
+
+	}
+
+	?>
 <a href="https://plus.google.com/109024420628459355677" rel="publisher"></a>
 <a href='#top' title='<?php _e('Scroll to top','avia_framework'); ?>' id='scroll-top-link' <?php echo av_icon_string( 'scrolltop' ); ?>><span class="avia_hidden_link_text"><?php _e('Scroll to top','avia_framework'); ?></span></a>
 
@@ -313,11 +313,11 @@ var google_remarketing_only = true;
 	(function() {
 	 livechatooCmd = function() { livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
 	 var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
-	 l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js'; 
+	 l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
 	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
 	})();
 	</script>
-	
+
 <noscript>
 <div style="display:inline;">
 <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008551004/?value=0&amp;guid=ON&amp;script=0"/>

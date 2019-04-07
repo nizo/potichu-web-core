@@ -22,6 +22,7 @@ global $avia_config;
                     * called loop-page.php and that will be used instead.
                     */
 
+
                     $avia_config['size'] = avia_layout_class( 'main' , false) == 'entry_without_sidebar' ? '' : 'entry_with_sidebar';
                     get_template_part( 'includes/loop', 'portfolio-single' );
                     ?>
@@ -29,12 +30,12 @@ global $avia_config;
                 <!--end content-->
 				</main>
 
-				
-			
-				
-				
-				
-				
+
+
+
+
+
+
 				<?php
 
 				//get the sidebar
@@ -42,7 +43,7 @@ global $avia_config;
 				get_sidebar();
 
 				?>
-				
+
 				<div style="padding-bottom: 30px;  z-index:10;">
 				<div class="fb-like" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-width="450" data-show-faces="false" data-send="false"></div>
 				<div style="margin-top: 40px;" class="fb-comments" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-numposts="5" data-width="720" data-colorscheme="light"></div>

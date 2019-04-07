@@ -700,7 +700,7 @@ if( ! class_exists( 'avia_form' ) )
 					{
 						if($element['type'] == 'textarea') $message .= " <br/>";
 						$field_value = apply_filters("avf_form_mail_field_values", nl2br(urldecode($new_post[$key])), $new_post, $this->form_elements, $this->form_params);
-						$message .= $element['label'].": ".$field_value." <br/>";
+						$message .= $element['label'].": ".$field_value." <br/>";						
 						if($element['type'] == 'textarea') $message .= " <br/>";
 						
 						array_push($jobDetails, $field_value);

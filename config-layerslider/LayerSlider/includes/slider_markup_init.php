@@ -79,6 +79,7 @@ foreach($slides['properties']['attrs'] as $key => $val) {
 $init = implode(', ', $init);
 
 // Fix multiple jQuery issue
+$data = [];
 $data[] = '<script data-cfasync="false" type="text/javascript">';
 $data[] = 'var lsjQuery = jQuery;';
 $data[] = '</script>';

@@ -104,11 +104,32 @@ Mobile Styles
   /* Add your Mobile Styles here */
 
 	.graph-material-title {
-		width: 33%;	
+		width: 33%;
 	}
-	
-	.graph-material-title
-		
+
+	.eshop-link {
+		position: absolute;
+		display: block !important;
+		background-color: #e0a60c;
+		z-index: 10000;
+		color: white;
+		right: 24px;
+		top: 0px;
+		text-transform: uppercase;
+		padding: 4px 8px 3px 8px;
+		letter-spacing: 0.5px;
+		border: 1px solid #ce9b16;
+		text-decoration: none !important;
+		font-size: 12px;
+	}
+
+	.eshop-link:hover {
+		top: 4px;
+		transition: top 0.3s;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
 	.responsive tr th:first-child, tr td:first-child {
 		text-transform: uppercase;
 		font-size: 115%;
@@ -116,8 +137,8 @@ Mobile Styles
 		color: rgb(77,77,77);
 		font-weight: bold;
 	}
-	
-	.responsive table > tbody > tr:first-child td:first-child {		
+
+	.responsive table > tbody > tr:first-child td:first-child {
 		display:none;
 	}
 
@@ -128,11 +149,11 @@ Mobile Styles
 	#top .avia-post-nav{
 		background: rgba(0,97,182,0.1);
 	}
-	
+
 	.responsive .container {
 		width: 90%;
 	}
-	
+
 	.flags-container  {
 		top: 16px;
 	}
@@ -144,38 +165,38 @@ Mobile Styles
 	.avia-builder-el-5 .avia-button.avia-position-left {
 		margin-top: 0px;
 	}
-	
+
 	.main_menu {
 		height: auto;
 	}
-		
+
 	.home.page .avia-builder-el-13 .avia_textblock p {
 		text-align: left !important;
 	}
-	
+
 	.avia-icon-list .iconlist_icon {
 		margin-bottom: 30px;
 	}
-	
+
 	.noLightbox.social_bookmarks.icon_count_2 {
-		width:12% !important;	
+		width:12% !important;
 		display: inline-block;
 	}
-	
+
 	.responsive #header .sub_menu, .responsive #header_meta .sub_menu>ul {
 		display: inline-block;
 		width:89%;
 	}
-	
+
 	.phone-info {
 		width: 100%;
 		text-align: right;
 	}
-	
-	
+
+
 	.responsive #header .sub_menu, .responsive #header_meta .sub_menu>ul {width: 100% !important;}
 	.sub_menu .phone-info {text-align: center;}
-	
+
 	.page-id-1167 .avia-builder-el-2 {
 		min-height: 0px !important;
 	}
@@ -184,9 +205,9 @@ Mobile Styles
 @media only screen and (max-width: 500px) {
 
 	.graph-material-title {
-		width: 33% !important;	
+		width: 33% !important;
 	}
-	.flags-container-header .sk, .flags-container-header .cz { display: none !important; }	
+	/*.flags-container-header .sk, .flags-container-header .cz { display: none !important; }*/
 	.flags-container-header a div:first-child { margin-right: 10px !important; }
 	.sub-menu {width: 100% !important;}
 
@@ -197,12 +218,16 @@ Mobile Styles
 	.page-id-1167 .avia-builder-el-2 {
 		min-height: 0px !important;
 	}
+
+	.responsive #header .social_bookmarks {
+		text-align: left;
+	}
 }
 
 
 
 
-  
+
 .IMS_fixChatBox body .header .opInf .txtColor {
 	display:none !important;
 }
@@ -239,10 +264,10 @@ h3.widgettitle {
 	line-height: 1.3;
 }
 
-.social_header #header_main .container, .social_header .main_menu ul:first-child > li a { 
+.social_header #header_main .container, .social_header .main_menu ul:first-child > li a {
 	line-height: 88px;
 	height: 92px;
-}	
+}
 
 
 
@@ -270,12 +295,12 @@ h3.widgettitle {
 }
 
 .flags-container-header .sk {
-	background-image: url('../images/flag_sk.png');	
-	margin-right: 12px;	
+	background-image: url('../images/flag_sk.png');
+	margin-right: 12px;
 }
 
 .flags-container-header .cz {
-	background-image: url('../images/flag_cz.png');	
+	background-image: url('../images/flag_cz.png');
 }
 
 .contact-header {
@@ -348,15 +373,15 @@ h3.avia-form-success {
 	color: #359741;
 }
 
-.page-child .avia-gallery img, .avia_start_animation .iconlist_icon, .avia_transform .avia_start_animation.avia-testimonial .avia-testimonial-image { 
+.page-child .avia-gallery img, .avia_start_animation .iconlist_icon, .avia_transform .avia_start_animation.avia-testimonial .avia-testimonial-image {
 	opacity: 1 !important;
 	-webkit-animation: none !important;
 	-moz-animation: none !important;
-	-o-animation: none !important;	
+	-o-animation: none !important;
 	animation: none !important;
 }
 
-.page-child h3 { 
+.page-child h3 {
 	color: #0061b6 !important;
 }
 
@@ -391,9 +416,8 @@ body {
 #lineLegend { margin: 10px 0 40px 25px !important;}
 .page-id-1176 .avia-builder-el-5 { margin-top: 0px !important; }
 
-.team-img-container { border: 1px solid rgb(177,177,177) !important; }
 
-.team-member-description .member-more-information { 
+.team-member-description .member-more-information {
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top: -11px;
@@ -418,7 +442,7 @@ sup {
 
 #top .avia-post-nav { background: rgba(0,97,182,0.65); }
 
-.avia-promocontent h4 { 
+.avia-promocontent h4 {
 	margin-top: 0px;
 	line-height: 24px;
 }
@@ -469,7 +493,7 @@ h3, h4 { line-height: 1.3em; }
 	margin-top: 6px;
     overflow: hidden;
     border-radius: 4px;
-    float: left;   
+    float: left;
     position: relative;
     text-align: center;
     line-height: 81px;
@@ -496,20 +520,14 @@ h3, h4 { line-height: 1.3em; }
 
 .avia-testimonial_inner { text-align: left !important; }
 
-.av-menu-button-bordered .avia-menu-text {
-	background-color: white;
-	color: #0061b6;
-	border: none !important;
-}
-
 @media only screen and (max-width: 989px) {
-	
+
 	.page-id-1167 .entry-content-wrapper .av_one_fourth,
 	.page-id-1167 .entry-content-wrapper .av_one_half 	{
 		width: 100%;
 		margin-left: 0;
 	}
-	
+
 	.page-id-1167 .avia-builder-el-12 {
 		margin-top: 0;
 	}
@@ -520,11 +538,15 @@ h3, h4 { line-height: 1.3em; }
 		float: none;
 		margin-right: 12px;
 		border: 1px solid #d1d1d2;
-		padding: 4px 8px;
-		font-size: 13px;
+		padding: 4px 11px;
+		font-size: 14px;
 		text-transform: uppercase;
 		margin-bottom: 12px;
 		display: inline-block;
+	}
+
+	#js_sort_items {
+		text-align: center;
 	}
 
 	.sort_by_cat .text-sep {
@@ -534,5 +556,77 @@ h3, h4 { line-height: 1.3em; }
 	.sort_by_cat .active_sort {
 		background-color: #0061b6;
 		color: white !important;
+	}
+}
+
+body {
+	font-size: 15px;
+}
+
+#bignames .slide-entry {
+	clear: none;
+}
+/*
+.av-menu-button-bordered .avia-menu-text {
+	background-color: white;
+	color: #0061b6;
+	border: none !important;
+}
+*/
+.show_mobile_menu .avia-menu-text {
+	color: inherit !important;
+}
+
+.av-menu-button-bordered > a .avia-menu-text {
+	background-color: #0061b6;
+	border: 2px dashed #f8f8f8 !important;
+	color: #ffffff;
+}
+
+.av-main-nav .av-menu-button-bordered > a .avia-menu-text:hover {
+	background-color: #ffffff;
+	color: #0061b6;
+	border-color: #ffffff;
+}
+
+.show_mobile_menu .av-menu-button-bordered > a .avia-menu-text {
+	color: white !important;
+	padding: 7px !important;
+	border: none !important;
+}
+
+.show_mobile_menu .av-menu-button-bordered {
+	position: absolute !important;
+	top: 20px;
+}
+
+
+/*----------------------------------------
+// CSS
+// Toggle submenu in mobile
+//--------------------------------------*/
+
+#mobile-advanced .hideSubmenu ul.sub-menu {
+	display:none;
+}
+.subMenuIcon {
+	font-size: 30px;
+	color: #999;
+	/*background: #ededed;*/
+	position: absolute;
+	top:0;
+	right: 0px;
+	height:50px;;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	z-index: 99999;
+	display:inline-block;
+	cursor:pointer;
+}
+
+@media only screen and (min-width:767px){
+	.subMenuIcon {
+		display:none!important;
 	}
 }

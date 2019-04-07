@@ -200,7 +200,7 @@ if( ! class_exists( 'avia_htmlhelper' ) )
 					}
 					else
 					{
-						$output .= $this->$element['type']( $element );
+						$output .= $this->{$element['type']}( $element );
 					}
 				}
 				else
@@ -219,7 +219,7 @@ if( ! class_exists( 'avia_htmlhelper' ) )
 					}
 					else
 					{
-						$output .= $this->$element['type']( $element );
+						$output .= $this->{$element['type']}( $element );
 					}
 					
 					$output .= $this->section_end( $element );

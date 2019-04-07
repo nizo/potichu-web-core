@@ -32,13 +32,13 @@ if (have_posts()) :
      * retrieve slider, title and content for this post,...
      */
     $size = strpos($blog_style, 'big') ? (strpos($current_post['post_layout'], 'sidebar') !== false) ? 'entry_with_sidebar' : 'entry_without_sidebar' : 'square';
-    
+
     if(!empty($avia_config['preview_mode']) && !empty($avia_config['image_size']) && $avia_config['preview_mode'] == 'custom') $size = $avia_config['image_size'];
 	$current_post['slider']  	= get_the_post_thumbnail($current_post['the_id'], $size);
-	
+
 	if(is_single($initial_id) && get_post_meta( $current_post['the_id'], '_avia_hide_featured_image', true ) ) $current_post['slider'] = "";
-	
-	
+
+
 	$current_post['title']   	= get_the_title();
 	$current_post['content'] 	= $blog_content == "content" ? get_the_content(__('Read more','avia_framework').'<span class="more-link-arrow">  &rarr;</span>') : get_the_excerpt();
 	//$current_post['content'] 	= $blog_content == "excerpt_read_more" ? $current_post['content'].'<div class="read-more-link"><a href="'.get_permalink().'" class="more-link">'.__('+CViac','avia_framework').'</a></div>' : $current_post['content'];
@@ -74,7 +74,7 @@ if (have_posts()) :
 
         //default link for preview images
         $link = !empty($url) ? $url : get_permalink();
-        
+
         //preview image description
         $featured_img_desc = the_title_attribute('echo=0');
 
@@ -107,7 +107,7 @@ if (have_posts()) :
                 if($post_format == 'standard') {
 					$author_name = apply_filters('avf_author_name', get_the_author_meta('display_name', $post->post_author), $post->post_author);
 					$author_email = apply_filters('avf_author_email', get_the_author_meta('email', $post->post_author), $post->post_author);
-							
+
 					$gravatar_alt = esc_html($author_name);
 					$gravatar = get_avatar($author_email, '81', "blank", $gravatar_alt);
 					$link = get_author_posts_url($post->post_author);
@@ -118,16 +118,16 @@ if (have_posts()) :
             else if(strpos($blog_style, 'small')  !== false)
             {
                 //$blog_meta_output = "<a href='{$link}' class='small-preview' title='{$featured_img_desc}'>".$slider.$icon."</a>";
-				
+
 				$thumb_id = get_post_thumbnail_id();
 				$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'portfolio_small', true);
 				$thumb_url = $thumb_url_array[0];
-				
+
                 $blog_meta_output = "<a href='{$link}' class='potichu-preview' title='{$featured_img_desc}'><div style='height: 100%; background-size: cover; background-image: url(\"" . $thumb_url . "\");'></div></a>";
             }
-			
 
-						
+
+
         echo apply_filters('avf_loop_index_blog_meta', $blog_meta_output);
 
         echo "</div>";
@@ -139,7 +139,7 @@ if (have_posts()) :
                 echo "<span class='post-meta-infos'>";
                 $markup = avia_markup_helper(array('context' => 'entry_time','echo'=>false));
                 echo "<time class='date-container minor-meta updated' $markup>".get_the_time(get_option('date_format'))."</time>";
-				
+
 				/*
                 echo "<span class='text-sep text-sep-date'>/</span>";
 
@@ -181,18 +181,18 @@ if (have_posts()) :
 
 					*/
                     echo '<span class="blog-author minor-meta"> '.__('by','avia_framework')." ";
-                    
+
 						echo '<span class="entry-author-link" '.avia_markup_helper(array('context' => 'author_name','echo'=>false)).'>';
-					
+
 						echo '<span class="vcard author"><span class="fn">';
 						//the_author_posts_link();
 						the_author();
-					
+
 						echo '</span></span>';
-						
+
                     echo '</span>';
                     echo '</span>';
-					
+
                 echo '</span>';
             echo '</header>';
 
@@ -222,20 +222,20 @@ if (have_posts()) :
                 	the_tags('<strong>'.__('Tags:','avia_framework').'</strong><span> ');
                 	echo '</span></span>';
             	}
-            	
+
             	//share links on single post
             	//avia_social_share_links();
-   
+
 			?>
-   
+
    			<div style="padding-bottom: 30px; margin-top: 20px; z-index:10;">
 				<div class="fb-like" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-width="450" data-show-faces="false" data-send="false"></div>
 				<div style="margin-top: 40px;" class="fb-comments" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-numposts="5" data-width="620" data-colorscheme="light"></div>
 			</div>
-				
+
 				<?
             }
-            
+
             do_action('ava_after_content', $the_id, 'post');
 
             echo '</footer>';

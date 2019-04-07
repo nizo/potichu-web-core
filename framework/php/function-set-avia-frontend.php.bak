@@ -407,7 +407,7 @@ if(!function_exists('avia_set_title_tag'))
 		$webLocale = get_option('web_locale', 'sk');
 		if ($webLocale == 'sk')					
 			$title .= ' | ' . get_bloginfo('name') . '.sk';
-		else if ($webLocale == 'cs')					
+		else if ($webLocale == 'cz')					
 			$title .= ' | ' . get_bloginfo('name') . '.cz';
 				
 				

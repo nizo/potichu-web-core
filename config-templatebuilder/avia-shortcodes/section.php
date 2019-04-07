@@ -49,6 +49,7 @@ if ( !class_exists( 'avia_sc_section' ) )
 			{
 				extract($params);
 				$name = $this->config['shortcode'];
+				$data = array();
 				$data['shortcodehandler'] 	= $this->config['shortcode'];
     			$data['modal_title'] 		= $this->config['name'];
     			$data['modal_ajax_hook'] 	= $this->config['shortcode'];

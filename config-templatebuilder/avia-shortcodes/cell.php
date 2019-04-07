@@ -48,39 +48,40 @@ if ( !class_exists( 'avia_sc_cell' ) )
 
 			function editor_element($params)
 			{
-				
+
 				extract($params);
 				$name 		= $this->config['shortcode'];
 				$drag 		= $this->config['drag-level'];
 				$drop 		= $this->config['drop-level'];
 
-				$size = array(	'av_cell_one_full' => '1/1', 
-								'av_cell_one_half' => '1/2', 
-								'av_cell_one_third' => '1/3', 
-								'av_cell_one_fourth' => '1/4', 
-								'av_cell_one_fifth' => '1/5', 
-								'av_cell_two_third' => '2/3', 
-								'av_cell_three_fourth' => '3/4', 
-								'av_cell_two_fifth' => '2/5', 
-								'av_cell_three_fifth' => '3/5', 
+				$size = array(	'av_cell_one_full' => '1/1',
+								'av_cell_one_half' => '1/2',
+								'av_cell_one_third' => '1/3',
+								'av_cell_one_fourth' => '1/4',
+								'av_cell_one_fifth' => '1/5',
+								'av_cell_two_third' => '2/3',
+								'av_cell_three_fourth' => '3/4',
+								'av_cell_two_fifth' => '2/5',
+								'av_cell_three_fifth' => '3/5',
 								'av_cell_four_fifth' => '4/5'
-								
+
 							);
-				
+
+				$data = array();
 				$data['shortcodehandler'] 	= $this->config['shortcode'];
 				$data['modal_title'] 		= __('Edit Cell','avia_framework' );
 				$data['modal_ajax_hook'] 	= $this->config['shortcode'];
 				$data['dragdrop-level']		= $this->config['drag-level'];
 				$data['allowed-shortcodes'] = $this->config['shortcode'];
-				
+
 				if(!empty($this->config['modal_on_load']))
 				{
 					$data['modal_on_load'] 	= $this->config['modal_on_load'];
 				}
-	
+
 				$dataString  = AviaHelper::create_data_string($data);
-				
-			
+
+
 
 				$output  = "<div class='avia_layout_column avia_layout_cell avia_pop_class avia-no-visual-updates ".$name." av_drag' {$dataString} data-width='{$name}'>";
 				$output .= "<div class='avia_sorthandle'>";
@@ -88,12 +89,12 @@ if ( !class_exists( 'avia_sc_cell' ) )
 				$output .= "<span class='avia-col-size'>".$size[$name]."</span>";
 				$output .= "<a class='avia-delete'  href='#delete' title='".__('Delete Cell','avia_framework' )."'>x</a>";
 				$output .= "<a class='avia-clone'  href='#clone' title='".__('Clone Cell','avia_framework' )."' >".__('Clone Cell','avia_framework' )."</a>";
-				
+
 				if(!empty($this->config['popup_editor']))
     			{
     				$output .= "    <a class='avia-edit-element'  href='#edit-element' title='".__('Edit Cell','avia_framework' )."'>edit</a>";
     			}
-				
+
 				$output .= "</div><div class='avia_inner_shortcode avia_connect_sort av_drop ' data-dragdrop-level='{$drop}'><span class='av-fake-cellborder'></span>";
 				$output .= "<textarea data-name='text-shortcode' cols='20' rows='4'>".ShortcodeHelper::create_shortcode_by_array($name, $content, $args)."</textarea>";
 				if($content)
@@ -105,8 +106,8 @@ if ( !class_exists( 'avia_sc_cell' ) )
 
 				return $output;
 			}
-			
-			
+
+
 			/**
 			 * Popup Elements
 			 *
@@ -121,7 +122,7 @@ if ( !class_exists( 'avia_sc_cell' ) )
 
 				$this->elements = array(
 
-					array(	
+					array(
 							"name" 	=> __("Vertical align", 'avia_framework' ),
 							"desc" 	=> __("Choose the vertical alignment of your cells content.", 'avia_framework' ),
 							"id" 	=> "vertical_align",
@@ -131,32 +132,32 @@ if ( !class_exists( 'avia_sc_cell' ) )
 								__('Top',   'avia_framework' ) =>'top',
 								__('Middle',  'avia_framework' ) =>'middle',
 								__('Bottom',   'avia_framework' ) =>'bottom',
-							)),	
-					
-					array(	
+							)),
+
+					array(
 							"name" 	=> __("Cell Padding", 'avia_framework' ),
 							"desc" 	=> __("Set the distance from the cell content to the border here. Both pixel and &percnt; based values are accepted. eg: 30px, 5&percnt;", 'avia_framework' ),
 							"id" 	=> "padding",
 							"type" 	=> "multi_input",
 							"std" 	=> "30px",
 							"sync" 	=> true,
-							"multi" => array(	'top' 	=> __('Padding-Top','avia_framework'), 
-												'right'	=> __('Padding-Right','avia_framework'), 
+							"multi" => array(	'top' 	=> __('Padding-Top','avia_framework'),
+												'right'	=> __('Padding-Right','avia_framework'),
 												'bottom'=> __('Padding-Bottom','avia_framework'),
-												'left'	=> __('Padding-Left','avia_framework'), 
+												'left'	=> __('Padding-Left','avia_framework'),
 												)
 						),
-						
-					
-					
-					array(	
+
+
+
+					array(
 							"name" 	=> __("Custom Background Color", 'avia_framework' ),
 							"desc" 	=> __("Select a custom background color for this cell here. Leave empty for default color", 'avia_framework' ),
 							"id" 	=> "background_color",
 							"type" 	=> "colorpicker",
 							"std" 	=> "",
 						),
-						
+
 					array(
 							"name" 	=> __("Custom Background Image",'avia_framework' ),
 							"desc" 	=> __("Either upload a new, or choose an existing image from your media library. Leave empty if you don't want to use a background image ",'avia_framework' ),
@@ -165,7 +166,7 @@ if ( !class_exists( 'avia_sc_cell' ) )
 							"title" => __("Insert Image",'avia_framework' ),
 							"button" => __("Insert",'avia_framework' ),
 							"std" 	=> ""),
-					
+
 					array(
 						"name" 	=> __("Background Attachment",'avia_framework' ),
 						"desc" 	=> __("Background can either scroll with the page or be fixed", 'avia_framework' ),
@@ -178,7 +179,7 @@ if ( !class_exists( 'avia_sc_cell' ) )
 							__('Fixed','avia_framework' ) =>'fixed',
 							)
 						),
-					
+
                     array(
 						"name" 	=> __("Background Image Position",'avia_framework' ),
 						"id" 	=> "background_position",
@@ -210,13 +211,13 @@ if ( !class_exists( 'avia_sc_cell' ) )
 						                      __('Stretch to fit','avia_framework' )     =>'stretch'
 						                      )
 				  ),
-					
-					
-					
+
+
+
                 );
 			}
-			
-			
+
+
 
 			/**
 			 * Frontend Shortcode Handler
@@ -229,7 +230,7 @@ if ( !class_exists( 'avia_sc_cell' ) )
 			function shortcode_handler($atts, $content = "", $shortcodename = "", $meta = "")
 			{
 				global $avia_config;
-				
+
 				$atts = shortcode_atts(array(
 					'vertical_align'		=> '',
 					'padding'				=> '',
@@ -241,35 +242,35 @@ if ( !class_exists( 'avia_sc_cell' ) )
 					'fetch_image'			=> '',
 					'attachment_size'		=> '',
 					'attachment'			=> ''
-				
+
 				), $atts, $this->config['shortcode']);
-				
+
 				$extraClass	 = "";
 				$outer_style = "";
 				$inner_style = "";
-				
+
 				if(!empty(avia_sc_cell::$attr['min_height']))
 				{
 					$min = (int) avia_sc_cell::$attr['min_height'];
 					$outer_style = "height:{$min}px; min-height:{$min}px;";
 				}
-				
+
 				if(!empty($atts['attachment']))
 				{
 					$src = wp_get_attachment_image_src($atts['attachment'], $atts['attachment_size']);
 					if(!empty($src[0])) $atts['fetch_image'] = $src[0];
 				}
-				
+
 				if(!empty($atts['color']))
 				{
 					$extraClass .= "av_inherit_color";
 				}
-				
+
 				if($atts['background_repeat'] == "stretch")
 				{
 					$extraClass .= "avia-full-stretch";
 				}
-				
+
 				$explode_padding = explode(',',$atts['padding']);
 				if(count($explode_padding) > 1)
 				{
@@ -280,8 +281,8 @@ if ( !class_exists( 'avia_sc_cell' ) )
 						$atts['padding'] .= $value ." ";
 					}
 				}
-				
-				
+
+
 				if(!empty($atts['fetch_image']))
 				{
 					$outer_style .= $this->style_string($atts, 'fetch_image', 'background-image');
@@ -289,37 +290,37 @@ if ( !class_exists( 'avia_sc_cell' ) )
 					$outer_style .= $this->style_string($atts, 'background_repeat', 'background-repeat');
 					$outer_style .= $this->style_string($atts, 'background_attachment', 'background-attachment');
 				}
-				
+
 				$outer_style .= $this->style_string($atts, 'vertical_align', 'vertical-align');
 				$outer_style .= $this->style_string($atts, 'padding');
 				$outer_style .= $this->style_string($atts, 'background_color', 'background-color');
-				
-				
+
+
 				$shortcodename = str_replace('av_cell_', 'av_', $shortcodename);
-				
+
 				$avia_config['current_column'] = $shortcodename;
-				
+
 				if(!empty($outer_style)) $outer_style = "style='".$outer_style."'";
 				if(!empty($inner_style)) $inner_style = "style='".$inner_style."'";
-				
+
 				$output   = '<div class="flex_cell no_margin '.$shortcodename.' '.$meta['el_class'].' '.$extraClass.' '.avia_sc_cell::$extraClass.'" '.$outer_style.'>';
 				$output  .= "<div class='flex_cell_inner' {$inner_style}>";
 				//if the user uses the column shortcode without the layout builder make sure that paragraphs are applied to the text
 				$content =  (empty($avia_config['conditionals']['is_builder_template'])) ? ShortcodeHelper::avia_apply_autop(ShortcodeHelper::avia_remove_autop($content)) : ShortcodeHelper::avia_remove_autop($content, true);
-		
+
 				$output .= $content.'</div>';
 				$output .= '</div>';
-				
+
 				unset($avia_config['current_column']);
 
 				return $output;
 			}
-			
+
 			function style_string($atts, $key, $new_key = false)
 			{
 				$style_string = "";
 				if(empty($new_key)) $new_key = $key;
-				
+
 				if(isset($atts[$key]) && $atts[$key] !== "")
 				{
 					switch($new_key)
@@ -329,8 +330,8 @@ if ( !class_exists( 'avia_sc_cell' ) )
 						default: $style_string = $new_key.":".$atts[$key].";"; break;
 					}
 				}
-				
-				
+
+
 				return $style_string;
 			}
 	}

@@ -35,9 +35,10 @@ global $avia_config, $post;
 	 {
         echo avia_new_section(array('close'=>false,'main_container'=>true));
 	 }
-	
+
 	$content = apply_filters('the_content', $content);
 	$content = apply_filters('avf_template_builder_content', $content);
+
 	echo $content;
 
 
@@ -50,8 +51,8 @@ global $avia_config, $post;
 
 	wp_link_pages($avia_wp_link_pages_args);
 
-	
-	
+
+
 	//only close divs if the user didnt add fullwidth slider elements at the end. also skip sidebar if the last element is a slider
 	if(!$last_el || !in_array($last_el['tag'], AviaBuilder::$full_el_no_section ) )
 	{
@@ -71,17 +72,17 @@ global $avia_config, $post;
 
 
 	$showFacebook = (($avia_config['currently_viewing'] == 'blog') || (get_post_type() == 'portfolio'));
-		
-	if ($showFacebook) { ?>	
-		 
+
+	if ($showFacebook) { ?>
+
 		<div style="z-index:10; padding-bottom: 40px;">
 		<div class="fb-like" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-width="450" data-show-faces="false" data-send="false"></div>
 		<div style="margin-top: 40px;" class="fb-comments" data-href="<?php echo 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" data-numposts="5" data-width="780" data-colorscheme="light"></div></div>
-		
+
 	<? }
-	
-	
-	
+
+
+
 echo '		</div><!--end builder template-->';
 echo '</div><!-- close default .container_wrap element -->';
 

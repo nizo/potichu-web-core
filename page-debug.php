@@ -1,16 +1,14 @@
 <?php
+	global $avia_config;
 
-	//fetchConstructions();
-	
-	//$apiToken = 'fd105a61c9a565bfff7b3d5bef6929e55374a241';	
-	//$apiEndopoint = 'http://nizo.pipedrive.com';
-	//echo $apiEndopoint . '/deals' . '/?api_token=' . $apiToken;
-		
-	
-	//$response = file_get_contents($apiEndopoint . '/deals' . '/?api_token=' . $apiToken);
-	
-	//$response = json_decode($response);
-	
-	//var_dump($response);
-	
-?>
+	$avia_config['analytics_code'] = avia_option('analytics', false, false, true);
+	if(empty($avia_config['analytics_code'])) return;
+
+	echo $avia_config['analytics_code'];
+
+	?>
+
+	ga('send', 'event', 'Contact', 'Contact form', 'Contact form submitted', 1);"
+
+<?php
+	?>

@@ -368,12 +368,21 @@ array(
 				}
 
 
-	//avatar size filter
-	$avatar_size = apply_filters('avf_testimonials_avatar_size', 'square', $src, $class);
+				//avatar size filter
+				$avatar_size = apply_filters('avf_testimonials_avatar_size', 'square', $src, $class);
 
 	//avatar
                 $markup = avia_markup_helper(array('context' => 'single_image','echo'=>false, 'custom_markup'=>$custom_markup));
-	if($src)	$avatar  = "<div class='avia-testimonial-image' $markup>".wp_get_attachment_image( $src , $avatar_size , false, array('alt'=>esc_attr(strip_tags($name))))."</div>";
+				
+				
+				/*
+				if($src)	$avatar  = "<div class='avia-testimonial-image' $markup>".wp_get_attachment_image( $src , $avatar_size , false, array('alt'=>esc_attr(strip_tags($name))))."</div>";				
+				*/
+				
+				
+				$src = home_url('/wp-content/themes/enfold/images/avatar.png');
+				//echo $src;
+				if ($src) $avatar  = "<div class='avia-testimonial-image' $markup><img src=" . $src  . " class='attachment-thumbnail size-thumbnail'/></div>";
 
 	//meta
                 $markup_text = avia_markup_helper(array('context' => 'entry','echo'=>false, 'custom_markup'=>$custom_markup));

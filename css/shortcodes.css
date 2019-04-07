@@ -2502,7 +2502,7 @@ Team Member
 .team-member-description{}
 .team-social a{text-decoration: none; position: relative; border-radius: 30px; padding: 0 16px; background: #fff;margin: 3px; display: inline-block; height:53px; line-height:54px; width:53px; }
 .team-img-container{ position: relative; overflow: hidden; border-radius: 3px; text-align: center; margin-bottom:10px; }
-.team-img-container img{ display:block; margin:0 auto; }
+.team-img-container img{ display:block; }
 
 .avia-team-member .team-social{
 border: 7px solid rgba(0, 0, 0, 0.1);
