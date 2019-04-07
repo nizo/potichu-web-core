@@ -361,9 +361,14 @@ h3.widgettitle {
 	text-transform: uppercase;
 }
 
-.page-id-1167 .avia-builder-el-12 {
+html[lang="sk-SK"] .page-id-1167 .avia-builder-el-12 {
 	margin-top: -430px;
 }
+
+html[lang="cs-CZ"] .page-id-1167 .avia-builder-el-12 {
+	margin-top: -270px;
+}
+
 
 .page-id-1167 .avia-builder-el-2 {
 	min-height: 640px;

@@ -80,13 +80,13 @@ if( ! class_exists( 'avia_form' ) )
          * @var int
          */
         var $length = 20;
-        
+
         /**
          * Stores the width of the current row of elements
          * @var int
          */
         var $width = 1;
-        
+
         /**
          * array that translates the passed width to a numeric value
          * @var int
@@ -135,7 +135,7 @@ if( ! class_exists( 'avia_form' ) )
             $trans['\.'] = '';
             return $trans;
         }
-        
+
         /**
          * get a custom for button or captcha element based on the current $width
          */
@@ -147,7 +147,7 @@ if( ! class_exists( 'avia_form' ) )
         	if($this->width <= 0.5)  { $class = 'form_element_half';		 }
         	if($this->width <= 0.3)  { $class = 'form_element_two_third';	 }
         	if($this->width <= 0.25) { $class = 'form_element_three_fourth'; }
-        	
+
         	if(!empty($class)) $this->width = 1;
         	return $class;
         }
@@ -164,7 +164,7 @@ if( ! class_exists( 'avia_form' ) )
 			$this->form_elements = $elements;
 			$iterations = 0;
 			$width = "";
-			
+
 			foreach($elements as $key => $element)
 			{
 				if(isset($element['type']) && method_exists($this, $element['type']))
@@ -181,15 +181,15 @@ if( ! class_exists( 'avia_form' ) )
 					if(empty($element['class'])) $element['class'] = "";
 					if(empty($element['width'])) $element['width'] = "fullwidth";
 					$add = $this->width_translate[$element['width']];
-					
+
 					if($element['type'] != "decoy" && $element['type'] != "captcha")
 					{
 						$this->width += $add;
 						if($this->width > 1) { $this->width = $add; $element['class'] .= " first_form ";}
 					}
-					
+
 					$element['class'] .= !empty($element['width']) ? " form_element form_".$element['width'] : "";
-					
+
 					$element = apply_filters('avf_form_el_filter', $element, $this->formID, $this->form_params);
 					//$this->$element['type']($element_id.$this->id_sufix, $element);
 					$this->{$element['type']}($element_id.$this->id_sufix, $element);
@@ -207,19 +207,19 @@ if( ! class_exists( 'avia_form' ) )
 		{
 			$success = '<div id="ajaxresponse'.$this->id_sufix.'" class="ajaxresponse ajaxresponse'.$this->id_sufix.' hidden"></div>';
 			$submit_attr = apply_filters('avf_contact_form_submit_button_attr', '', $this->formID, $this->form_params);
-			
-			
+
+
 			if($this->submit_form && $this->send())
 			{
 				$success = '<div id="ajaxresponse'.$this->id_sufix.'" class="ajaxresponse ajaxresponse'.$this->id_sufix.'">'.$this->form_params['success'].'</div>';
 			}
 			else
 			{
-				
+
 				$p_class = $this-> auto_width();
 				if(!empty($p_class)) $p_class .= " modified_width";
-				
-				
+
+
 				$this->output .= $this->elements_html;
 				$this->output .= '<p class="form_element '.$p_class.'">';
 				$this->output .= '<input type="hidden" value="1" name="avia_generated_form'.$this->formID.'" />';
@@ -248,15 +248,15 @@ if( ! class_exists( 'avia_form' ) )
          * @param array $element data array of the element that should be created
          */
 		function html($id, $element)
-		{	
+		{
 			if(!empty($element['content']))
 			{
 				$this->elements_html .= "<div id='{$id}' class='av-form-text'>".$element['content']."</div>";
 				$this->width = 1;
 			}
 		}
-		
-		
+
+
 		/**
          * text
          *
@@ -268,10 +268,10 @@ if( ! class_exists( 'avia_form' ) )
 		function text($id, $element)
 		{
 			$p_class = $required = $element_class = $value = "";
-			
+
 			$type = 'text';
 			// if($element['check'] == "is_email") $type = 'email'; //cant use this because of ie8 + 9
-			
+
 			if(!empty($element['check']))
 			{
 				$required = ' <abbr class="required" title="required">*</abbr>';
@@ -606,7 +606,7 @@ if( ! class_exists( 'avia_form' ) )
          * The send method tries to send the form. It builds the necessary email and submits it via wp_mail
          */
 		function send()
-		{	
+		{
 			$new_post = array();
 			foreach ($_POST as $key => $post)
 			{
@@ -658,16 +658,16 @@ if( ! class_exists( 'avia_form' ) )
 					if($usermail == true) break;
 				}
 			}
-			
-			
+
+
 			$to = urldecode( $mymail );
-			
+
 			$delimiter = ",";
 			if(strpos($to, ',') === false && strpos($to, ' ') !== false) $delimiter = " ";
-			
+
 			$to = array_filter(array_map('trim', explode($delimiter, $to)));
 			$to = apply_filters("avf_form_sendto", $to, $new_post, $this->form_params);
-	
+
 			$from = urldecode( $from );
 			$from = apply_filters("avf_form_from", $from, $new_post, $this->form_params);
 
@@ -675,7 +675,7 @@ if( ! class_exists( 'avia_form' ) )
 			$subject = apply_filters("avf_form_subject", $subject, $new_post, $this->form_params);
 
 			$message = "";
-			
+
 			$jobDetails = array();
 			$iterations = 0;
 
@@ -689,7 +689,7 @@ if( ! class_exists( 'avia_form' ) )
 					$key = $iterations;
 				}
 
-				// substract 5 characters from the string length because we removed the avia_ prefix with 5 characters at the beginning of the send() function 
+				// substract 5 characters from the string length because we removed the avia_ prefix with 5 characters at the beginning of the send() function
 				$key = avia_backend_truncate($key, $this->length - 5, "_", "", false, '', false);
 
 				$key .= $this->id_sufix;
@@ -702,7 +702,7 @@ if( ! class_exists( 'avia_form' ) )
 						$field_value = apply_filters("avf_form_mail_field_values", nl2br(urldecode($new_post[$key])), $new_post, $this->form_elements, $this->form_params);
 						$message .= $element['label'].": ".$field_value." <br/>";
 						if($element['type'] == 'textarea') $message .= " <br/>";
-						
+
 						array_push($jobDetails, $field_value);
 					}
 				}
@@ -715,9 +715,9 @@ if( ! class_exists( 'avia_form' ) )
 			$header = 'Content-type: text/html; charset=utf-8' . "\r\n";
 			$header = apply_filters("avf_form_mail_header", $header, $new_post, $this->form_params);
 			$copy 	= apply_filters("avf_form_copy", $to, $new_post, $this->form_params);
-			
+
 			$message = apply_filters("avf_form_message", stripslashes($message), $new_post, $this->form_params);
-			
+
 			foreach($copy as $send_to_mail)
 			{
 				if($use_wpmail)
@@ -757,18 +757,18 @@ if( ! class_exists( 'avia_form' ) )
 				}
 			}
 			unset($_POST);
-			
+
 			/*
 			$webLocale = get_option('web_locale', 'sk');
-			
-			if ($webLocale == 'sk')					
+
+			if ($webLocale == 'sk')
 				wp_mail( 'potichu.helper@gmail.com', $from, 'potichu.sk' , $header);
-			else if ($webLocale == 'cz')					
+			else if ($webLocale == 'cz')
 				wp_mail( 'potichu.helper@gmail.com', $from, 'potichu.cz' , $header);
 			*/
-			
+
 			potichu_submit_job_to_pipedrive_handler($jobDetails);
-			
+
 			return true;
 			//return wp_mail( $to, $subject, $message , $header);
 

@@ -48,7 +48,7 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 		echo '<meta property="og:image" content="http://potichu.sk/logo-sk.png" />';
 		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
 	}
-	else if ($webLocale == 'cz') {
+	else {
 		echo '<meta property="og:url" content="http://www.potichu.cz" />';
 		echo '<meta property="og:image" content="http://potichu.cz/logo-cz.png" />';
 		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
@@ -170,7 +170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	</script>
 
-	<script type='text/javascript' src='<?php echo home_url(); ?>/wp-content/themes/enfold/js/potichu-custom.js?ver=3'></script>
+	<!--<script type='text/javascript' src='<?php echo home_url(); ?>/wp-content/themes/enfold/js/potichu-custom.js?ver=3'></script>-->
 
 
 	<div id='wrap_all'>
