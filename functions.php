@@ -313,15 +313,11 @@ if(!function_exists('avia_register_frontend_scripts'))
 		wp_enqueue_style( 'avia-layout',  $template_url."/css/layout.css", array(), 	'4', 'all' );
 		wp_enqueue_style( 'avia-scs',     $template_url."/css/shortcodes.css", array(), '3', 'all' );
 		wp_enqueue_style( 'avia-popup-css', $template_url."/js/aviapopup/magnific-popup.css", array(), '1', 'screen' );
-		wp_enqueue_style( 'avia-media'  , $template_url."/js/mediaelement/skin-1/mediaelementplayer.css", array(), '1', 'screen' );
-		wp_enqueue_style( 'avia-print' ,  $template_url."/css/print.css", array(), '1', 'print' );
+		//wp_enqueue_style( 'avia-media'  , $template_url."/js/mediaelement/skin-1/mediaelementplayer.css", array(), '1', 'screen' );
+		//wp_enqueue_style( 'avia-print' ,  $template_url."/css/print.css", array(), '1', 'print' );
 
 		wp_register_script( 'chart', get_template_directory_uri().'/js/chart.js', array('jquery'), 1, true );
 		wp_enqueue_script( 'chart' );
-
-		if ( is_rtl() ) {
-			wp_enqueue_style(  'avia-rtl',  $template_url."/css/rtl.css", array(), '1', 'all' );
-		}
 
 
         global $avia;
@@ -825,10 +821,9 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 		$cityId = 'd939ca8cc6a11101553489d9bd2c9fc84c2930ec';
 	} else {
 		$api_token = '2dbe5a7e699f15990b5b8fccda79a90ba19af617';
-		$assignedToPersonUserId = 3086675;	
+		$assignedToPersonUserId = 3086675;
 		$cityId = '3635d1573043f91389788ea00ba3a30caa36ac31';
 	}
-
 
 	$name = $jobDetails[0];
 	$email = $jobDetails[1];
@@ -836,9 +831,6 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 	$city = $jobDetails[3];
 	$problemType = $jobDetails[4];
 	$note = $jobDetails[5];
-
-
-	
 
 	// main data about the person. org_id is added later dynamically
 	$person = array(

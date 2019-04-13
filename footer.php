@@ -163,19 +163,11 @@
 
 
 <?php
-
-
-
-
 	/* Always have wp_footer() just before the closing </body>
 	 * tag of your theme, or you will break many plugins, which
 	 * generally use this hook to reference JavaScript files.
 	 */
-
-
 	wp_footer();
-
-
 ?>
 
 
@@ -286,11 +278,8 @@
 		}
 		</script>
 		<?
-
 	}
-
 	?>
-<a href="https://plus.google.com/109024420628459355677" rel="publisher"></a>
 <a href='#top' title='<?php _e('Scroll to top','avia_framework'); ?>' id='scroll-top-link' <?php echo av_icon_string( 'scrolltop' ); ?>><span class="avia_hidden_link_text"><?php _e('Scroll to top','avia_framework'); ?></span></a>
 
 <div id="fb-root"></div>
@@ -309,6 +298,7 @@ var google_remarketing_only = true;
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 
+<!--
 <script type="text/javascript">
 	(function() {
 	 livechatooCmd = function() { livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
@@ -317,8 +307,9 @@ var google_remarketing_only = true;
 	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
 	})();
 	</script>
-
 <noscript>
+-->
+
 <div style="display:inline;">
 <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008551004/?value=0&amp;guid=ON&amp;script=0"/>
 </div>
