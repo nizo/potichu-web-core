@@ -838,7 +838,7 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 	 'name' => $name,
 	 'email' => $email,
 	 'phone' => $phone,
-	 'd939ca8cc6a11101553489d9bd2c9fc84c2930ec' => $city
+	 $cityId => $city
 	);
 
 	// main data about the deal. person_id and org_id is added later dynamically
