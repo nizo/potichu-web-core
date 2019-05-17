@@ -49,6 +49,8 @@
 <html <?php language_attributes(); ?> class="<?php echo "html_{$style} ".$responsive." ".$preloader." ".$av_lightbox." ".$filterable_classes." ".$av_classes_manually ?> ">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="theme-color" content="#0061b6">
+
 
 
 <?php
@@ -85,11 +87,14 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 	if ($webLocale == 'sk')	{
 		echo '<meta property="og:url" content="https://www.potichu.sk" />';
 		echo '<meta property="og:image" content="https://potichu.sk/logo-sk.png" />';
+		echo '<link rel="icon" sizes="192x192" href="https://potichu.sk/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
+
 		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
 	}
 	else {
 		echo '<meta property="og:url" content="https://www.potichu.cz" />';
 		echo '<meta property="og:image" content="https://potichu.cz/logo-cz.png" />';
+		echo '<link rel="icon" sizes="192x192" href="https://potichu.cz/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
 		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
 	}
 
