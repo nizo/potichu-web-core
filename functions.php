@@ -8,7 +8,7 @@ function potichu_enqueue_scripts() {
 		wp_enqueue_script( 'chart' );
 	}
 
-	wp_register_style( 'custom-style', get_stylesheet_directory_uri().'/custom.css', array(), 'v3');
+	wp_register_style( 'custom-style', get_stylesheet_directory_uri().'/custom.css', array(), 'v5');
 	wp_enqueue_style( 'custom-style' );
 }
 add_action("wp_enqueue_scripts", "potichu_enqueue_scripts");
