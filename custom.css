@@ -253,7 +253,7 @@ h3.widgettitle {
 
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 699px) {
 	#js_sort_items a,
 	#js_sort_items .text-sep {
 		float: none;
