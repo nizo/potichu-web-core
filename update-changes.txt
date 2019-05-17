@@ -1,0 +1,5 @@
+config-templatebuilder\avia-template-builder\php\font-manager.class.php
+	458 - font-display: block;
+
+framework/php/class-form-generator.php
+	update "send" method to call "potichu_submit_job_to_pipedrive_handler($jobDetails)"

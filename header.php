@@ -1,18 +1,57 @@
 <?php
+	if ( ! defined('ABSPATH') ){ die(); }
+
 	global $avia_config;
 
-	$style 		= $avia_config['box_class'];
-	$responsive	= avia_get_option('responsive_active') != "disabled" ? "responsive" : "fixed_layout";
-	$blank 		= isset($avia_config['template']) ? $avia_config['template'] : "";
-	$av_lightbox= avia_get_option('lightbox_active') != "disabled" ? 'av-default-lightbox' : 'av-custom-lightbox';
+	$lightbox_option = avia_get_option( 'lightbox_active' );
+	$avia_config['use_standard_lightbox'] = empty( $lightbox_option ) || ( 'lightbox_active' == $lightbox_option ) ? 'lightbox_active' : 'disabled';
+	/**
+	 * Allow to overwrite the option setting for using the standard lightbox
+	 * Make sure to return 'disabled' to deactivate the standard lightbox - all checks are done against this string
+	 *
+	 * @added_by Günter
+	 * @since 4.2.6
+	 * @param string $use_standard_lightbox				'lightbox_active' | 'disabled'
+	 * @return string									'lightbox_active' | 'disabled'
+	 */
+	$avia_config['use_standard_lightbox'] = apply_filters( 'avf_use_standard_lightbox', $avia_config['use_standard_lightbox'] );
+
+	$style 					= $avia_config['box_class'];
+	$responsive				= avia_get_option('responsive_active') != "disabled" ? "responsive" : "fixed_layout";
+	$blank 					= isset($avia_config['template']) ? $avia_config['template'] : "";
+	$av_lightbox			= $avia_config['use_standard_lightbox'] != "disabled" ? 'av-default-lightbox' : 'av-custom-lightbox';
+	$preloader				= avia_get_option('preloader') == "preloader" ? 'av-preloader-active av-preloader-enabled' : 'av-preloader-disabled';
+    $sidebar_styling 		= avia_get_option('sidebar_styling');
+	$filterable_classes 	= avia_header_class_filter( avia_header_class_string() );
+	$av_classes_manually	= "av-no-preview"; /*required for live previews*/
+
+	/**
+	 * Allows to alter default settings Enfold-> Main Menu -> General -> Menu Items for Desktop
+	 * @since 4.4.2
+	 */
+	$is_burger_menu = apply_filters( 'avf_burger_menu_active', avia_is_burger_menu(), 'header' );
+	$av_classes_manually   .= $is_burger_menu ? " html_burger_menu_active" : " html_text_menu_active";
+
+	/**
+	 * Add additional custom body classes
+	 * e.g. to disable default image hover effect add av-disable-avia-hover-effect
+	 *
+	 * @since 4.4.2
+	 */
+	$custom_body_classes = apply_filters( 'avf_custom_body_classes', '' );
+
+	/**
+	 * @since 4.2.3 we support columns in rtl order (before they were ltr only). To be backward comp. with old sites use this filter.
+	 */
+	$rtl_support			= 'yes' == apply_filters( 'avf_rtl_column_support', 'yes' ) ? ' rtl_columns ' : '';
 
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> class="<?php echo " html_{$style} ".$responsive." ".$av_lightbox." ".avia_header_class_string();?> ">
+<html <?php language_attributes(); ?> class="<?php echo "html_{$style} ".$responsive." ".$preloader." ".$av_lightbox." ".$filterable_classes." ".$av_classes_manually ?> ">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-<?php
 
+<?php
 global $post;
 
 if (is_single(get_the_ID()) || $post->post_parent != 0) {
@@ -47,11 +86,13 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 		echo '<meta property="og:url" content="http://www.potichu.sk" />';
 		echo '<meta property="og:image" content="http://potichu.sk/logo-sk.png" />';
 		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
+		$gtmCode = 'GTM-537RXRG';
 	}
 	else {
 		echo '<meta property="og:url" content="http://www.potichu.cz" />';
 		echo '<meta property="og:image" content="http://potichu.cz/logo-cz.png" />';
 		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
+		$gtmCode = '-';
 	}
 
 
@@ -69,15 +110,8 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//app.livechatoo.com">
 
-
-
-<!-- page title, displayed in your browser bar -->
-<title><?php if(function_exists('avia_set_title_tag')) { echo avia_set_title_tag(); } ?></title>
-
 <link href="https://www.google.com/+PotichuSk" rel="publisher" />
 <link rel="author" href="https://plus.google.com/103386127817600208643"/>
-
-
 
 <?php
 /*
@@ -86,11 +120,6 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
  */
  if (function_exists('avia_set_follow')) { echo avia_set_follow(); }
 
-
- /*
- * outputs a favicon if defined
- */
- if (function_exists('avia_favicon'))    { echo avia_favicon(avia_get_option('favicon')); }
 ?>
 
 
@@ -113,27 +142,17 @@ wp_head();
 
 ?>
 
-	<!--//Livechatoo.com START-code
-
-	<script type="text/javascript">
-	(function() {
-	 livechatooCmd = function() { livechatoo.embed.init({account : 'potichu<?php if ($webLocale == 'cs') echo "cz";?>)', lang : '<?php echo $webLocale; ?>', side : 'right'}) };
-	 var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
-	 l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
-	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
-	})();
-	</script>
-
-	Livechatoo.com END-code//-->
-
-
-
 </head>
 
 
 
 
-<body id="top" <?php body_class($style." ".$avia_config['font_stack']." ".$blank); avia_markup_helper(array('context' => 'body')); ?>>
+<body id="top" <?php body_class( $custom_body_classes . ' ' . $rtl_support . $style." ".$avia_config['font_stack']." ".$blank." ".$sidebar_styling); avia_markup_helper(array('context' => 'body')); ?>>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gtmCode;?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 <?php
  	$webLocale = get_option('web_locale', 'sk');
@@ -145,33 +164,46 @@ wp_head();
   }
  ?>
 
-
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TVXDZZ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TVXDZZ');</script>
-<!-- End Google Tag Manager -->
-
-
-
 <div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "<?php echo $facebookSrc; ?>";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+<!--
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "<?php echo $facebookSrc; ?>";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 
 
 	</script>
+	-->
 
-	<!--<script type='text/javascript' src='<?php echo home_url(); ?>/wp-content/themes/enfold/js/potichu-custom.js?ver=3'></script>-->
+	<?php
 
+	/**
+	 * WP 5.2 add a new function - stay backwards compatible with older WP versions and support plugins that use this hook
+	 * https://make.wordpress.org/themes/2019/03/29/addition-of-new-wp_body_open-hook/
+	 *
+	 * @since 4.5.6
+	 */
+	if( function_exists( 'wp_body_open' ) )
+	{
+		wp_body_open();
+	}
+	else
+	{
+		do_action( 'wp_body_open' );
+	}
+
+	do_action( 'ava_after_body_opening_tag' );
+
+	if("av-preloader-active av-preloader-enabled" === $preloader)
+	{
+		echo avia_preload_screen();
+	}
+
+	?>
 
 	<div id='wrap_all'>
 
@@ -183,7 +215,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 	} ?>
 
-	<div id='main' data-scroll-offset='<?php echo avia_header_setting('header_scroll_offset'); ?>'>
+	<div id='main' class='all_colors' data-scroll-offset='<?php echo avia_header_setting('header_scroll_offset'); ?>'>
 
+	<?php
 
-	<?php do_action('ava_after_main_container'); ?>
+		if(isset($avia_config['temp_logo_container'])) echo $avia_config['temp_logo_container'];
+		do_action('ava_after_main_container');
+
