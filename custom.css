@@ -87,11 +87,11 @@ Template: enfold
 }
 
 .html_av-overlay-side #top .av-burger-overlay-scroll {
-	background-color: white;
+	background-color: white !important;
 }
 
 .html_av-overlay-side #top #wrap_all .av-burger-overlay-scroll #av-burger-menu-ul a {
-	color: #666;
+	color: #666 !important;
 }
 
 .html_av-overlay-side-classic #top .av-burger-overlay li li .avia-bullet, .html_av-overlay-side.av-burger-overlay-active #top .av-hamburger-inner, .html_av-overlay-side.av-burger-overlay-active #top .av-hamburger-inner::before, .html_av-overlay-side.av-burger-overlay-active #top .av-hamburger-inner::after {

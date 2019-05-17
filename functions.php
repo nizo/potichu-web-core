@@ -1,10 +1,14 @@
 <?php
 
 function potichu_enqueue_scripts() {
-	wp_register_script( 'chart', get_stylesheet_directory_uri().'/assets/js/chart.js', array('jquery'), 2, true );
-	wp_enqueue_script( 'chart' );
+	global $singleMaterialPage;
 
-	wp_register_style( 'custom-style', get_stylesheet_directory_uri().'/custom.css', array(), 'v2');
+	if ($singleMaterialPage) {
+		wp_register_script( 'chart', get_stylesheet_directory_uri().'/assets/js/chart.js', array('jquery'), 2, true );
+		wp_enqueue_script( 'chart' );
+	}
+
+	wp_register_style( 'custom-style', get_stylesheet_directory_uri().'/custom.css', array(), 'v3');
 	wp_enqueue_style( 'custom-style' );
 }
 add_action("wp_enqueue_scripts", "potichu_enqueue_scripts");
@@ -12,13 +16,32 @@ add_action("wp_enqueue_scripts", "potichu_enqueue_scripts");
 /* PIPEDRIVE SECTION START */
 add_action( 'potichu_submit_job_hook', 'potichu_submit_job_to_pipedrive', 10, 1);
 
+
+// remove emoji
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+// disable rest API discovery
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+
+// remove wp-embed.js
+function my_deregister_scripts(){
+	wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+
+
+
 function potichu_submit_job_to_pipedrive_handler($jobDetails) {
 	$args = array($jobDetails);
 	wp_schedule_single_event( time() + 10, 'potichu_submit_job_hook', $args);
 }
 
 function potichu_font_display($default) {
-	return 'block';
+	return 'swap';
 }
 
 add_filter('avf_font_display', 'potichu_font_display');
