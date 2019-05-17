@@ -291,6 +291,13 @@ h3.widgettitle {
 	padding-top: 60px !important;
 }
 
+.team-member-job-title  {
+	margin-top: 2px;
+}
+
+.team-social {
+	display: none;
+}
 
 .av-burger-overlay .av-menu-button-bordered {
 	margin-top: 24px !important;
