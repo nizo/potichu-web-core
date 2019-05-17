@@ -291,6 +291,19 @@ h3.widgettitle {
 	padding-top: 60px !important;
 }
 
+
 .av-burger-overlay .av-menu-button-bordered {
 	margin-top: 24px !important;
+}
+
+/*
+.avia-icon-list .av-iconlist-empty .iconlist_title { margin-top: 0 !important;}
+.avia-icon-list li {
+	display: flex;
+	align-items: center;
+}
+*/
+.avia-icon-list li .iconlist_icon {
+	min-width: 64px;
+	margin-right: 16px;
 }
