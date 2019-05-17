@@ -88,8 +88,6 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 		echo '<meta property="og:url" content="https://www.potichu.sk" />';
 		echo '<meta property="og:image" content="https://potichu.sk/logo-sk.png" />';
 		echo '<link rel="icon" sizes="192x192" href="https://potichu.sk/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
-		echo '<link rel="preload" href="https://www.potichu.sk/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff" as="font">';
-
 
 		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
 	}
@@ -97,7 +95,7 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 		echo '<meta property="og:url" content="https://www.potichu.cz" />';
 		echo '<meta property="og:image" content="https://potichu.cz/logo-cz.png" />';
 		echo '<link rel="icon" sizes="192x192" href="https://potichu.cz/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
-		echo '<link rel="preload" href="https://www.potichu.cz/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/assets/fonts/entypo-fontello.woff" as="font">';
+
 		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
 	}
 
