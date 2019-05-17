@@ -277,16 +277,16 @@ wp_footer();
 <script type="text/javascript">
 	WebFontConfig = {
     google: { families: [ 'Open+Sans:400,600&amp;subset=latin-ext&display=block' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
+};
+(function() {
+	var wf = document.createElement('script');
+	wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+		'://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+	wf.type = 'text/javascript';
+	wf.async = 'true';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(wf, s);
+})();
 
 </script>
 
@@ -409,24 +409,32 @@ var google_remarketing_only = true;
 
 <script type="text/javascript">
 	(function() {
-	 livechatooCmd = function() { livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
-	 var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
-	 l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
-	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
+		livechatooCmd = function() { livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
+		var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
+		l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
 	})();
 </script>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','<?php echo $gtmCode; ?>');</script>
-<!-- End Google Tag Manager -->
+<?php
+	$webLocale = get_option('web_locale', 'sk');
 
+	if ($webLocale == 'sk')	{
+		?>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-537RXRG');</script>
+		<!-- End Google Tag Manager -->
+		<?php
+	}
+	else {
+	}
+?>
 
 <noscript>
 	<div style="display:inline;">
 		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008551004/?value=0&amp;guid=ON&amp;script=0"/>
 	</div>
 </noscript>
-
 
 </body>
 </html>

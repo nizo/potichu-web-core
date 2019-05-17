@@ -83,16 +83,14 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 	$webLocale = get_option('web_locale', 'sk');
 
 	if ($webLocale == 'sk')	{
-		echo '<meta property="og:url" content="http://www.potichu.sk" />';
-		echo '<meta property="og:image" content="http://potichu.sk/logo-sk.png" />';
+		echo '<meta property="og:url" content="https://www.potichu.sk" />';
+		echo '<meta property="og:image" content="https://potichu.sk/logo-sk.png" />';
 		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
-		$gtmCode = 'GTM-537RXRG';
 	}
 	else {
-		echo '<meta property="og:url" content="http://www.potichu.cz" />';
-		echo '<meta property="og:image" content="http://potichu.cz/logo-cz.png" />';
+		echo '<meta property="og:url" content="https://www.potichu.cz" />';
+		echo '<meta property="og:image" content="https://potichu.cz/logo-cz.png" />';
 		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
-		$gtmCode = '-';
 	}
 
 
@@ -149,20 +147,15 @@ wp_head();
 
 <body id="top" <?php body_class( $custom_body_classes . ' ' . $rtl_support . $style." ".$avia_config['font_stack']." ".$blank." ".$sidebar_styling); avia_markup_helper(array('context' => 'body')); ?>>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gtmCode;?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-
 <?php
- 	$webLocale = get_option('web_locale', 'sk');
+	$webLocale = get_option('web_locale', 'sk');
 
-  if ($webLocale == 'sk') {
-    echo '<a href="https://eshop.potichu.sk" target="_blank" class="eshop-link" style="display: none;">Otvoriť e-shop</a>';
-  } else {
-    echo '<a href="https://eshop.potichu.cz" target="_blank" class="eshop-link" style="display: none;">Otevřít e-shop</a>';
-  }
- ?>
+	if ($webLocale == 'sk') {
+		echo '<a href="https://eshop.potichu.sk" target="_blank" class="eshop-link" style="display: none;">Otvoriť e-shop</a>';
+	} else {
+		echo '<a href="https://eshop.potichu.cz" target="_blank" class="eshop-link" style="display: none;">Otevřít e-shop</a>';
+	}
+?>
 
 <div id="fb-root"></div>
 <!--
