@@ -137,7 +137,7 @@ if (function_exists('avia_set_follow')) { echo avia_set_follow(); }
 <!-- mobile setting -->
 <?php
 
-if( strpos($responsive, 'responsive') !== false ) echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';
+if( strpos($responsive, 'responsive') !== false ) echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">';
 ?>
 
 
