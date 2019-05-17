@@ -227,7 +227,7 @@ h3.widgettitle {
 	font-size: 15px !important;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.iconbox_content {
 		margin-top: 18px;
 	}
@@ -236,8 +236,20 @@ h3.widgettitle {
 		margin-bottom: 12px !important;
 	}
 
-
 	footer .menu { display: none;}
+
+	.responsive #top .av-large-testimonial-slider.avia-testimonial-wrapper .avia-testimonial {
+		padding: 0px 40px;
+	}
+
+	#top .avia-slideshow-arrows a.next-slide {
+		right: -30px;
+	}
+
+	#top .avia-slideshow-arrows a.prev-slide {
+		left: -30px;
+	}
+
 }
 
 @media only screen and (min-width: 768px) {
