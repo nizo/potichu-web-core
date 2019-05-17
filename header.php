@@ -104,7 +104,8 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 
 	?>
 
-<link rel="dns-prefetch" href="//google-analytics.com">
+	
+<link rel="manifest" href="<?php echo get_stylesheet_directory_uri() . '/manifest.json'?>">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//app.livechatoo.com">
 
