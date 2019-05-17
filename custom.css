@@ -235,6 +235,9 @@ h3.widgettitle {
 	.iconbox .iconbox_content .iconbox_content_title {
 		margin-bottom: 12px !important;
 	}
+
+
+	footer .menu { display: none;}
 }
 
 
