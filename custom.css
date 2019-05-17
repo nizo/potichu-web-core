@@ -121,7 +121,7 @@ Template: enfold
 }
 
 .avia-testimonial_inner:before {
-	background-image: url('https://www.potichu.cz/wp-content/themes/enfold/images/avatar.png');
+	background-image: url('/wp-content/themes/enfold-child/images/avatar.png');
 	display: block;
 	content:  ' ';
 }
