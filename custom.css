@@ -13,8 +13,9 @@
 	background-color: inherit;
 }
 
-.alternate_color .avia-icon-list .iconlist_icon, .main_color .avia-icon-list .iconlist_icon {
-    background-color: #0d69ba;
+.alternate_color .avia-icon-list .iconlist_icon,
+.main_color .avia-icon-list .iconlist_icon {
+    background-color: #0d69ba !important;
 }
 
 #header .avia_mega_div .units {
