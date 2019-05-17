@@ -3,7 +3,7 @@
   "short_name": "Potichu",
   "theme_color": "#0061b6",
   "background_color": "#0061b6",
-  "display": "browser",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "icons": [
