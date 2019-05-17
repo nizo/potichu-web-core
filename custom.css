@@ -1,5 +1,5 @@
 #top .av-menu-button > a .avia-menu-text {
-    background-color: #0061b6;
+    background-color: #0d69ba;
     border: 2px dashed #f8f8f8 !important;
 	color: #fff;
 }
@@ -14,7 +14,7 @@
 }
 
 .alternate_color .avia-icon-list .iconlist_icon, .main_color .avia-icon-list .iconlist_icon {
-    background-color: #0061b6;
+    background-color: #0d69ba;
 }
 
 #header .avia_mega_div .units {
@@ -25,26 +25,35 @@
 	list-style-type: none;
 }
 
+#top #header.header-scrolled .av-menu-button > a .avia-menu-text {
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	padding: 4px  !important;
+	border-radius: 0 !important;
+}
 
 .flags-container-header {
     height: 100%;
     width: auto;
-    display: inline-block;
+	display: inline-block;
+	vertical-align: bottom;
 }
 
 .flags-container-header a .sk, .flags-container-header a .cz {
     width: 19px;
-    height: 13px;
+    height: 11px;
     display: inline-block;
     background-repeat: no-repeat;
     margin-left: 6px;
 	cursor: pointer;
 	background-size: contain;
+	vertical-align: bottom;
 }
+
 .flags-container-header a .shift {
 	display: inline-block;
     vertical-align: middle;
-    margin-top: -6px;
 }
 .flags-container-header .cz {
     background-image: url('/wp-content/themes/enfold-child/images/flag_cz.png');
@@ -231,7 +240,13 @@ h3.widgettitle {
 	footer .menu { display: none;}
 }
 
-
+@media only screen and (min-width: 768px) {
+	#js_sort_items a,
+	#js_sort_items .text-sep {
+		float: none;
+		display: inline-block;
+	}
+}
 @media only screen and (min-width: 700px) {
 	#js_sort_items {
 		text-align: center;
