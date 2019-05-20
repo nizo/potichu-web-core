@@ -1,2 +1,6 @@
 framework/php/class-form-generator.php
 	update "send" method to call "potichu_submit_job_to_pipedrive_handler($jobDetails)"
+
+contact.js asset is copied and override within child theme.
+	added ga('send', 'event', 'Contact', 'Contact form', 'Contact form submitted', 1); to the "send_ajax_form" method
+

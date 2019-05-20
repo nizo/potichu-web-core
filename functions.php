@@ -35,6 +35,15 @@ function my_deregister_scripts(){
 add_action( 'wp_footer', 'my_deregister_scripts' );
 
 
+function potichu_override_parent_assets() {
+    wp_dequeue_script('avia-module-contact');
+	wp_deregister_script('avia-module-contact');
+
+	$child_theme_url 	= get_stylesheet_directory_uri();
+
+	wp_enqueue_script( 'potichu-avia-module-contact', $child_theme_url.'/assets/js/contact.js', array('avia-shortcodes'), false, true);
+}
+add_action( 'wp_enqueue_scripts', 'potichu_override_parent_assets', 200 );
 
 
 function potichu_submit_job_to_pipedrive_handler($jobDetails) {
