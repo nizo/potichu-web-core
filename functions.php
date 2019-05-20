@@ -203,7 +203,5 @@ function add_activity($api_token, $activity) {
 		return false;
 	}
 }
-
 /* PIPEDRIVE SECTION END */
-
 ?>
