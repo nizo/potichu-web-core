@@ -112,17 +112,23 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 
 <link rel="manifest" href="<?php echo get_stylesheet_directory_uri() . '/manifest.json'?>">
 
-<link rel="dns-prefetch" href="//app.livechatoo.com">
-
-<link rel="preconnect" href="https://ajax.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://googleads.g.doubleclick.net">
-<link rel="preconnect" href="https://ssl.google-analytics.com">
-<link rel="preconnect" href="https://www.google-analytics.com">
-
-
 <link href="https://www.google.com/+PotichuSk" rel="publisher" />
 <link rel="author" href="https://plus.google.com/103386127817600208643"/>
+
+<!--
+<link rel="preconnect" href="https://ajax.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://ssl.google-analytics.com">
+-->
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="//app.livechatoo.com">
+
+<link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-600.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-600.woff" type="font/woff" crossorigin="anonymous">
+
+<link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-400.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-400.woff" type="font/woff" crossorigin="anonymous">
 
 <?php
 /*

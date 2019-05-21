@@ -285,11 +285,10 @@ wp_footer();
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
-		src: url('assets/fonts/entypo-fontello.eot');
-		src: url('assets/fonts/entypo-fontello.eot?#iefix') format('embedded-opentype'),
-		url('assets/fonts/entypo-fontello.woff') format('woff'),
-		url('assets/fonts/entypo-fontello.ttf') format('truetype'),
-		url('assets/fonts/entypo-fontello.svg#entypo-fontello') format('svg');
+		src: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.woff') format('woff'),
+		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.ttf') format('truetype'),
+		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.eot?#iefix') format('embedded-opentype'),
+		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.svg#entypo-fontello') format('svg');
 	}
 
 	#top .avia-font-entypo-fontello,
@@ -302,17 +301,19 @@ wp_footer();
 	/* Open Sans 400 */
 	@font-face {
 		font-family: "Open Sans";
-		src: url('assets/fonts/open-sans-400.woff2') format('woff2'), url('assets/fonts/open-sans-400.woff') format('woff');
+		src: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-400.woff2') format('woff2'), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-400.woff') format('woff');
 		font-weight: 400;
 		font-style: normal;
+		font-display: swap;
 	}
 
 	/* Open Sans 600 */
 	@font-face {
 		font-family: "Open Sans";
-		src: url('assets/fonts/open-sans-600.woff2') format('woff2'), url('assets/fonts/open-sans-600.woff') format('woff');
+		src: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-600.woff2') format('woff2'), url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-600.woff') format('woff');
 		font-weight: 600;
 		font-style: normal;
+		font-display: swap;
 	}
 </style>
 
