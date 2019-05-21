@@ -35,7 +35,7 @@ function potichu_enqueue_scripts() {
 	wp_register_script( 'jquery-migrate-potichu', get_stylesheet_directory_uri() . '/assets/js/jquery-migrate-3.0.1.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'jquery-migrate-potichu' );
 
-	// Avia module contact	
+	// Avia module contact
     wp_dequeue_script('avia-module-contact');
 	wp_deregister_script('avia-module-contact');
 
