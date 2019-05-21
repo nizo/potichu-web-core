@@ -1,22 +1,11 @@
 <?php
 
-function potichu_enqueue_scripts() {
-	global $singleMaterialPage;
-
-	if ($singleMaterialPage) {
-		wp_register_script( 'chart', get_stylesheet_directory_uri().'/assets/js/chart.js', array('jquery'), 2, true );
-		wp_enqueue_script( 'chart' );
-	}
-
-	$file = get_stylesheet_directory() . '/custom.css';
+function potichu_enqueue_scripts_footer() {
 	$fileURI = get_stylesheet_directory_uri() . '/custom.css';
-	wp_register_style( 'custom-style', $fileURI, array(), filemtime($file));
+	wp_register_style( 'custom-style', $fileURI, array());
 	wp_enqueue_style( 'custom-style' );
 }
-add_action("wp_enqueue_scripts", "potichu_enqueue_scripts");
-
-/* PIPEDRIVE SECTION START */
-add_action( 'potichu_submit_job_hook', 'potichu_submit_job_to_pipedrive', 10, 1);
+add_action( 'get_footer', 'potichu_enqueue_scripts_footer' );
 
 
 // remove emoji
@@ -35,7 +24,14 @@ function my_deregister_scripts(){
 add_action( 'wp_footer', 'my_deregister_scripts' );
 
 
-function potichu_override_parent_assets() {
+function potichu_enqueue_scripts() {
+	global $singleMaterialPage;
+
+	if ($singleMaterialPage) {
+		wp_register_script( 'chart', get_stylesheet_directory_uri().'/assets/js/chart.js', array('jquery'), 2, true );
+		wp_enqueue_script( 'chart' );
+	}
+
     wp_dequeue_script('avia-module-contact');
 	wp_deregister_script('avia-module-contact');
 
@@ -43,8 +39,11 @@ function potichu_override_parent_assets() {
 
 	wp_enqueue_script( 'potichu-avia-module-contact', $child_theme_url.'/assets/js/contact.js', array('avia-shortcodes'), false, true);
 }
-add_action( 'wp_enqueue_scripts', 'potichu_override_parent_assets', 200 );
+add_action( 'wp_enqueue_scripts', 'potichu_enqueue_scripts', 200 );
 
+
+/* PIPEDRIVE SECTION START */
+add_action( 'potichu_submit_job_hook', 'potichu_submit_job_to_pipedrive', 10, 1);
 
 function potichu_submit_job_to_pipedrive_handler($jobDetails) {
 	$args = array($jobDetails);
