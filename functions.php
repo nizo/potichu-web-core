@@ -1,13 +1,4 @@
 <?php
-
-function potichu_enqueue_scripts_footer() {
-	$fileURI = get_stylesheet_directory_uri() . '/custom.css';
-	wp_register_style( 'custom-style', $fileURI, array());
-	wp_enqueue_style( 'custom-style' );
-}
-add_action( 'get_footer', 'potichu_enqueue_scripts_footer' );
-
-
 // remove emoji
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
@@ -31,6 +22,10 @@ function potichu_enqueue_scripts() {
 		wp_register_script( 'chart', get_stylesheet_directory_uri().'/assets/js/chart.js', array('jquery'), 2, true );
 		wp_enqueue_script( 'chart' );
 	}
+
+	$fileURI = get_stylesheet_directory_uri() . '/custom.css';
+	wp_register_style( 'custom-style', $fileURI, array());
+	wp_enqueue_style( 'custom-style' );
 
     wp_dequeue_script('avia-module-contact');
 	wp_deregister_script('avia-module-contact');
