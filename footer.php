@@ -182,8 +182,12 @@
 
 				<footer class='container_wrap socket_color' id='socket' <?php avia_markup_helper(array('context' => 'footer')); ?>>
                     <div class='container'>
+						<?php
+							$theme = wp_get_theme();
+							$version = ' - v' . $theme->get( 'Version' );
+						?>
 
-                        <span class='copyright'><?php echo $copyright . $kriesi_at_backlink; ?></span>
+                        <span class='copyright'><?php echo $copyright . $version; ?></span>
 
                         <?php
                         	if(avia_get_option('footer_social', 'disabled') != "disabled")
