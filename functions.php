@@ -27,8 +27,22 @@ function potichu_enqueue_scripts() {
 	wp_register_style( 'custom-style', $fileURI, array());
 	wp_enqueue_style( 'custom-style' );
 
+	// jQuery
+	wp_dequeue_script('jquery');
+	wp_deregister_script('jquery');
+
+    wp_register_script( 'jquery', get_stylesheet_directory_uri() . '/assets/js/jquery-3.4.1.min.js', array(), '', true );
+	wp_register_script( 'jquery-migrate-potichu', get_stylesheet_directory_uri() . '/assets/js/jquery-migrate-3.0.1.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'jquery-migrate-potichu' );
+
+	// Avia module contact	
     wp_dequeue_script('avia-module-contact');
 	wp_deregister_script('avia-module-contact');
+
+	// Avia compact
+	//wp_dequeue_script('avia-compat');
+	//wp_deregister_script('avia-compat');
+	//wp_enqueue_script( 'avia-compat', $template_url.'/js/avia-compat.js' , array(), $vn, false );
 
 	$child_theme_url 	= get_stylesheet_directory_uri();
 
