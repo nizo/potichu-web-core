@@ -121,7 +121,6 @@ if (is_single(get_the_ID()) || $post->post_parent != 0) {
 
 <link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-600.woff2" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/open-sans-400.woff2" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" as="font" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.woff" type="font/woff" crossorigin="anonymous">
 
 <?php
 /*

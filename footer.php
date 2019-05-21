@@ -279,25 +279,6 @@ wp_footer();
 -->
 <style type='text/css'>
 
-	/* entypo-fontello */
-	@font-face {
-		font-family: 'entypo-fontello';
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-		src: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.woff') format('woff'),
-		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.ttf') format('truetype'),
-		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.eot?#iefix') format('embedded-opentype'),
-		url('<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/entypo-fontello.svg#entypo-fontello') format('svg');
-	}
-
-	#top .avia-font-entypo-fontello,
-	body .avia-font-entypo-fontello,
-	html body [data-av_iconfont='entypo-fontello']:before {
-		font-family: 'entypo-fontello';
-	}
-
-
 	/* Open Sans 400 */
 	@font-face {
 		font-family: "Open Sans";
