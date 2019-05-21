@@ -50,6 +50,20 @@ function potichu_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'potichu_enqueue_scripts', 200 );
 
+/*
+function potichu_font_display($default) {
+	return 'swap';
+}
+add_filter('avf_font_display', 'potichu_font_display');
+*/
+
+function potichu_remove_icon_font($output) {
+	return '';
+}
+add_filter('avf_font_manager_load_font', 'potichu_remove_icon_fonts');
+
+
+
 
 /* PIPEDRIVE SECTION START */
 add_action( 'potichu_submit_job_hook', 'potichu_submit_job_to_pipedrive', 10, 1);
@@ -58,12 +72,6 @@ function potichu_submit_job_to_pipedrive_handler($jobDetails) {
 	$args = array($jobDetails);
 	wp_schedule_single_event( time() + 10, 'potichu_submit_job_hook', $args);
 }
-
-function potichu_font_display($default) {
-	return 'swap';
-}
-
-add_filter('avf_font_display', 'potichu_font_display');
 
 function potichu_submit_job_to_pipedrive($jobDetails) {
 	// $jobDetails should contain following items in following order

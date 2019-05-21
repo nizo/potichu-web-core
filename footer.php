@@ -277,7 +277,46 @@ wp_footer();
 <!--
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext&display=block" rel="stylesheet">
 -->
+<style type='text/css'>
 
+	/* entypo-fontello */
+	@font-face {
+		font-family: 'entypo-fontello';
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+		src: url('assets/fonts/entypo-fontello.eot');
+		src: url('assets/fonts/entypo-fontello.eot?#iefix') format('embedded-opentype'),
+		url('assets/fonts/entypo-fontello.woff') format('woff'),
+		url('assets/fonts/entypo-fontello.ttf') format('truetype'),
+		url('assets/fonts/entypo-fontello.svg#entypo-fontello') format('svg');
+	}
+
+	#top .avia-font-entypo-fontello,
+	body .avia-font-entypo-fontello,
+	html body [data-av_iconfont='entypo-fontello']:before {
+		font-family: 'entypo-fontello';
+	}
+
+
+	/* Open Sans 400 */
+	@font-face {
+		font-family: "Open Sans";
+		src: url('assets/fonts/open-sans-400.woff2') format('woff2'), url('assets/fonts/open-sans-400.woff') format('woff');
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	/* Open Sans 600 */
+	@font-face {
+		font-family: "Open Sans";
+		src: url('assets/fonts/open-sans-600.woff2') format('woff2'), url('assets/fonts/open-sans-600.woff') format('woff');
+		font-weight: 600;
+		font-style: normal;
+	}
+</style>
+
+<!--
 <script type="text/javascript">
 	WebFontConfig = {
     google: { families: [ 'Open+Sans:400,600&amp;subset=latin-ext&display=block' ] }
@@ -291,8 +330,8 @@ wp_footer();
 	var s = document.getElementsByTagName('script')[0];
 	s.parentNode.insertBefore(wf, s);
 })();
-
 </script>
+-->
 
 
 <?
