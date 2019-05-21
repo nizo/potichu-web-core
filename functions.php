@@ -60,7 +60,7 @@ add_filter('avf_font_display', 'potichu_font_display');
 function potichu_remove_icon_font($output) {
 	return '';
 }
-add_filter('avf_font_manager_load_font', 'potichu_remove_icon_fonts');
+add_filter('avf_font_manager_load_font', 'potichu_remove_icon_font');
 
 
 
