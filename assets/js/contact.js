@@ -202,8 +202,10 @@
 						responseContainer.removeClass('hidden').css({display:"block"});
 						form.slideUp(400, function(){responseContainer.slideDown(400, function(){ $('body').trigger('av_resize_finished'); }); send.formElements.val('');});
 
-						ga('send', 'event', 'Contact', 'Contact form', 'Contact form submitted', 1);
-						console.log('Form submitted event sent to GA');
+						if (ga) {
+							ga('send', 'event', 'Contact', 'Contact form', 'Contact form submitted', 1);
+							console.log('Form submitted event sent to GA');
+						}
 					}
 				});
 			}
