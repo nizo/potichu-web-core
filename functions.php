@@ -58,6 +58,50 @@ function potichu_submit_job_to_pipedrive_handler($jobDetails) {
 	wp_schedule_single_event( time() + 10, 'potichu_submit_job_hook', $args);
 }
 
+function potichu_web_settings_register( $wp_customize ) {
+
+	$wp_customize->add_setting( 'google_tag_manager_head' , array(
+		'type'		=> 'option',
+		'default'	=> '',
+		'transport'	=> 'refresh',
+	));
+
+	$wp_customize->add_setting( 'google_tag_manager_body' , array(
+		'type'		=> 'option',
+		'default'	=> '',
+		'transport'	=> 'refresh',
+	));
+
+	// Sections
+	$wp_customize->add_section( 'web_settings_section' , array(
+		'title'      => 'Potichu',
+		'priority'   => 1000,
+	) );
+
+
+	$wp_customize->add_control(
+		'google_tag_manager_head_control',
+		array(
+			'label'    => 'GTM code - head',
+			'section'  => 'web_settings_section',
+			'settings' => 'google_tag_manager_head',
+			'type'     => 'textarea'
+		)
+	);
+
+	$wp_customize->add_control(
+		'google_tag_manager_body_control',
+		array(
+			'label'    => 'GTM code - body',
+			'section'  => 'web_settings_section',
+			'settings' => 'google_tag_manager_body',
+			'type'     => 'textarea'
+		)
+	);
+}
+add_action( 'customize_register', 'potichu_web_settings_register' );
+
+
 function potichu_submit_job_to_pipedrive($jobDetails) {
 	// $jobDetails should contain following items in following order
 	// MENO PRIEZVISKO

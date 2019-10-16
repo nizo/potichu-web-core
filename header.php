@@ -136,6 +136,8 @@ if (function_exists('avia_set_follow')) { echo avia_set_follow(); }
 <?php
 
 if( strpos($responsive, 'responsive') !== false ) echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">';
+
+echo get_option('google_tag_manager_head', '');
 ?>
 
 
@@ -159,6 +161,7 @@ wp_head();
 <body id="top" <?php body_class( $custom_body_classes . ' ' . $rtl_support . $style." ".$avia_config['font_stack']." ".$blank." ".$sidebar_styling); avia_markup_helper(array('context' => 'body')); ?>>
 
 <?php
+	echo get_option('google_tag_manager_body', '');
 	$webLocale = get_option('web_locale', 'sk');
 
 	if ($webLocale == 'sk') {
