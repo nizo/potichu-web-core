@@ -169,24 +169,32 @@ wp_head();
 	} else {
 		echo '<a href="https://eshop.potichu.cz" target="_blank" class="eshop-link" style="display: none;">Otevřít e-shop</a>';
 	}
-?>
 
-<div id="fb-root"></div>
-<!--
-<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "<?php echo $facebookSrc; ?>";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+	if (get_option('use_facebook_chatbot', false)) {
+		?>
+			<!-- Load Facebook SDK for JavaScript -->
+			<div id="fb-root"></div>
+			<script>
+				window.fbAsyncInit = function() {
+				FB.init({
+					xfbml            : true,
+					version          : 'v5.0'
+				});
+				};
 
+				(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = 'https://connect.facebook.net/sk_SK/sdk/xfbml.customerchat.js';
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
 
+				<!-- Your customer chat code -->
+			<div class="fb-customerchat" attribution=setup_tool page_id="378262625584874" theme_color="#0061b6" logged_in_greeting="Dobrý deň, ako Vám môžeme pomôcť?" logged_out_greeting="Dobrý deň, ako Vám môžeme pomôcť?"></div>
+		<?php
+	}
 
-	</script>
-	-->
-
-	<?php
 
 	/**
 	 * WP 5.2 add a new function - stay backwards compatible with older WP versions and support plugins that use this hook

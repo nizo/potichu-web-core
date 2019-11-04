@@ -431,19 +431,23 @@ var google_remarketing_only = true;
 </script>
 <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
 
-
-<script type="text/javascript">
-	(function() {
-		livechatooCmd = function() {
-			livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
-			var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
-			l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
-		}
-	)();
-</script>
-
 <?php
+
+if (!get_option('use_facebook_chatbot', false)) {
+	?>
+	<script type="text/javascript">
+		(function() {
+			livechatooCmd = function() {
+				livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
+				var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
+				l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
+			}
+		)();
+	</script>
+<?php
+}
+
 	$webLocale = get_option('web_locale', 'sk');
 
 	if ($webLocale == 'sk')	{

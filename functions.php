@@ -72,12 +72,27 @@ function potichu_web_settings_register( $wp_customize ) {
 		'transport'	=> 'refresh',
 	));
 
+	$wp_customize->add_setting( 'use_facebook_chatbot' , array(
+		'type'		=> 'option',
+		'default'	=> false,
+		'transport'	=> 'refresh',
+	));
+
 	// Sections
 	$wp_customize->add_section( 'web_settings_section' , array(
 		'title'      => 'Potichu',
 		'priority'   => 1000,
 	) );
 
+	$wp_customize->add_control(
+		'use_facebook_chatbot_control',
+		array(
+			'label'    => 'Allow Facebook customer chat',
+			'section'  => 'web_settings_section',
+			'settings' => 'use_facebook_chatbot',
+			'type'     => 'checkbox'
+		)
+	);
 
 	$wp_customize->add_control(
 		'google_tag_manager_head_control',
