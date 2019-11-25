@@ -57,49 +57,35 @@
 global $post;
 $id = get_the_ID();
 $post = get_post($id);
-$title =  str_replace('<sup>', '', get_the_title($id));
-$title =  str_replace('</sup>', '', $title);
+$facebookSrc = '';
+$webLocale = get_option('web_locale', 'sk');
 
 if (is_single(get_the_ID()) || $post->post_parent != 0) {
-	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'medium' );
-	$url = $thumb['0'];
-	echo '<meta property="og:image" content="' . $url . '" />';
-} ?>
-
-<meta property="og:url" content="<?php echo get_permalink($id); ?>" />
-<meta property="og:site_name" content="Potichu" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="<?php echo $title; ?>" />
-<meta property="og:description" content="<?php echo $post->post_excerpt; ?>" />
-
-<?php
-
-	$facebookSrc = '';
-	$webLocale = get_option('web_locale', 'sk');
-
+} else {
 	if ($webLocale == 'sk')	{
-		echo '<meta property="og:url" content="https://www.potichu.sk" />';
 		echo '<meta property="og:image" content="https://potichu.sk/logo-sk.png" />';
-		echo '<link rel="icon" sizes="192x192" href="https://potichu.sk/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
-
-		$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
-	}
-	else {
-		echo '<meta property="og:url" content="https://www.potichu.cz" />';
+	} else {
 		echo '<meta property="og:image" content="https://potichu.cz/logo-cz.png" />';
-		echo '<link rel="icon" sizes="192x192" href="https://potichu.cz/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
-
-		$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
 	}
 
-	$materialPageID = get_page_by_title( 'materialy')->ID;
-	$currentPageParentID= get_post_ancestors( $the_id )[0];
+}
+if ($webLocale == 'sk')	{
+	echo '<link rel="icon" sizes="192x192" href="https://potichu.sk/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
+	$facebookSrc = "//connect.facebook.net/sk_SK/all.js#xfbml=1&appId=589860764410747";
+}
+else {
+	echo '<link rel="icon" sizes="192x192" href="https://potichu.cz/wp-content/themes/enfold-child/images/icons/icon-192x192.png">';
+	$facebookSrc = "//connect.facebook.net/cs_CZ/all.js#xfbml=1&appId=589860764410747";
+}
 
-	if (empty($currentPageParentID)) $currentPageParentID = -1;
-	global $singleMaterialPage;
-	$singleMaterialPage = ($materialPageID == $currentPageParentID);
+$materialPageID = get_page_by_title( 'materialy')->ID;
+$currentPageParentID= get_post_ancestors( $the_id )[0];
 
-	?>
+if (empty($currentPageParentID)) $currentPageParentID = -1;
+global $singleMaterialPage;
+$singleMaterialPage = ($materialPageID == $currentPageParentID);
+
+?>
 
 <link rel="manifest" href="<?php echo get_stylesheet_directory_uri() . '/manifest.json'?>">
 
