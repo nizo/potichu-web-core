@@ -61,6 +61,9 @@ $facebookSrc = '';
 $webLocale = get_option('web_locale', 'sk');
 
 if (is_single(get_the_ID()) || $post->post_parent != 0) {
+	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'medium' );
+	$url = $thumb['0'];
+	echo '<meta property="og:image" content="' . $url . '" />';
 } else {
 	if ($webLocale == 'sk')	{
 		echo '<meta property="og:image" content="https://potichu.sk/logo-sk.png" />';
