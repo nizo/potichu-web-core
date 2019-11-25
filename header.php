@@ -55,31 +55,24 @@
 
 <?php
 global $post;
+$id = get_the_ID();
+$post = get_post($id);
+$title =  str_replace('<sup>', '', get_the_title($id));
+$title =  str_replace('</sup>', '', $title);
 
 if (is_single(get_the_ID()) || $post->post_parent != 0) {
-
-	$id = get_the_ID();
-	$post = get_post($id);	
 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'medium' );
 	$url = $thumb['0'];
-	$title =  str_replace('<sup>', '', get_the_title($id));
-	$title =  str_replace('</sup>', '', $title);
-	?>
-	<meta property="og:site_name" content="Potichu" />
-	<meta property="og:title" content="<?php echo $title; ?>" />
-	<meta property="og:url" content="<?php echo get_permalink($id); ?>" />
-	<meta property="og:image" content="<?php echo $url; ?>" />
-	<meta property="og:description" content="<?php echo $post->post_excerpt; ?>" />
-	<meta property="og:type" content="website" />
-<?php
-} else {
-?>
-	<meta property="og:site_name" content="Potichu" />
-	<meta property="og:title" content="Zvukové izolácie" />
-	<meta property="og:description" content="" />
-	<meta property="og:type" content="website" />
+	echo '<meta property="og:image" content="' . $url . '" />';
+} ?>
 
-<?php }
+<meta property="og:url" content="<?php echo get_permalink($id); ?>" />
+<meta property="og:site_name" content="Potichu" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<?php echo $title; ?>" />
+<meta property="og:description" content="<?php echo $post->post_excerpt; ?>" />
+
+<?php
 
 	$facebookSrc = '';
 	$webLocale = get_option('web_locale', 'sk');
