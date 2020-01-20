@@ -324,3 +324,11 @@ h3.widgettitle {
 	padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.title_container .breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    position: static;
+    margin-top: 0;
+}
