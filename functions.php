@@ -23,6 +23,7 @@ function potichu_enqueue_scripts() {
 		wp_enqueue_script( 'chart' );
 	}
 
+	$theme   = wp_get_theme();
 	wp_register_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css', array(), $theme->get( 'Version' ));
 	wp_enqueue_style( 'custom-style' );
 
