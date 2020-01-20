@@ -314,3 +314,11 @@ h3.widgettitle {
 	min-width: 64px;
 	margin-right: 16px;
 }
+
+.breadcrumbs .trail-before {
+    display: none;
+}
+
+#top .title_container .container {
+    min-height: 0;
+}
