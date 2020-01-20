@@ -23,9 +23,8 @@ function potichu_enqueue_scripts() {
 		wp_enqueue_script( 'chart' );
 	}
 
-	$theme   = wp_get_theme();
-	wp_register_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css', array(), $theme->get( 'Version' ));
-	wp_enqueue_style( 'custom-style' );
+	
+	
 
 	// jQuery
 	wp_dequeue_script('jquery');
@@ -49,6 +48,13 @@ function potichu_enqueue_scripts() {
 	wp_enqueue_script( 'potichu-avia-module-contact', $child_theme_url.'/assets/js/contact.js', array('avia-shortcodes'), false, true);
 }
 add_action( 'wp_enqueue_scripts', 'potichu_enqueue_scripts', 200 );
+
+function potichu_load_styles() {
+	$theme = wp_get_theme();
+	wp_register_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css', array(), $theme->get( 'Version' ));
+	wp_enqueue_style( 'custom-style' );
+}
+add_action( 'wp_enqueue_scripts', 'potichu_load_styles', 1000000 );
 
 /* PIPEDRIVE SECTION START */
 add_action( 'potichu_submit_job_hook', 'potichu_submit_job_to_pipedrive', 10, 1);
