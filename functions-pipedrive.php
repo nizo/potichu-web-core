@@ -32,7 +32,6 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 	$problemType = $jobDetails[4];
 	$note = $jobDetails[5];
 
-	// main data about the person. org_id is added later dynamically
 	$person = array(
 		'name' => $name,
 		'email' => $email,
@@ -40,7 +39,6 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 		$cityId => $city
 	);
 
-	// main data about the deal. person_id and org_id is added later dynamically
 	$deal = array(
 		'title' => $name . ' - formulár',
 		'user_id' => $assignedToPersonUserId
@@ -52,7 +50,6 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 
 	// if the person was added successfully add the deal and link it to the organization and the person
 	if ($person_id) {
-		echo "Person added successfully!";
 		$deal['person_id'] = $person_id;
 		// try adding a person and get back the ID
 		$deal_id = create_deal($api_token, $deal);
@@ -75,8 +72,6 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 		if ($activity_id) {
 			echo "<br/>Activity added successfully!";
 		}
-
-
 	} else {
 		echo "There was a problem with adding the person!";
 	}
