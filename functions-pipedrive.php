@@ -78,7 +78,7 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 }
 
 function get_person_id($api_token, $person) {
-	$url = "https://api.pipedrive.com/v1/persons/search?term=" . $person['email'] . "&fields=email&api_token=" . $api_token;
+	$url = "https://api.pipedrive.com/v1/persons/search?term=" . $person['email'] . "&fields=email&exact_match=true&api_token=" . $api_token;
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
