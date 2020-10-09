@@ -21,7 +21,7 @@ function potichu_submit_job_to_pipedrive($jobDetails) {
 		$cityId = 'd939ca8cc6a11101553489d9bd2c9fc84c2930ec';
 	} else {
 		$api_token = '2dbe5a7e699f15990b5b8fccda79a90ba19af617';
-		$assignedToPersonUserId = 3086675;
+		$assignedToPersonUserId = 11609908;
 		$cityId = '3635d1573043f91389788ea00ba3a30caa36ac31';
 	}
 
