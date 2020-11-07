@@ -332,3 +332,7 @@ h3.widgettitle {
     position: static;
     margin-top: 0;
 }
+
+.av-google-badge-message {
+	display: none;
+}
