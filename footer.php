@@ -431,36 +431,6 @@ var google_remarketing_only = true;
 </script>
 <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>
 
-<?php
-
-if (!get_option('use_facebook_chatbot', false)) {
-	?>
-	<script type="text/javascript">
-		(function() {
-			livechatooCmd = function() {
-				livechatoo.embed.init({account : 'potichu', lang : '<?php echo get_option('web_locale', 'sk'); ?>', side : 'right'}) };
-				var l = document.createElement('script'); l.type = 'text/javascript'; l.async = !0;
-				l.src = 'http' + (document.location.protocol == 'https:' ? 's' : '') + '://app.livechatoo.com/js/web.min.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(l, s);
-			}
-		)();
-	</script>
-<?php
-}
-
-	$webLocale = get_option('web_locale', 'sk');
-
-	if ($webLocale == 'sk')	{
-		?>
-		<!-- Google Tag Manager
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-537RXRG');</script>
-		End Google Tag Manager -->
-		<?php
-	}
-	else {
-	}
-?>
-
 <noscript>
 	<div style="display:inline;">
 		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1008551004/?value=0&amp;guid=ON&amp;script=0"/>
